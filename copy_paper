@@ -1,0 +1,463 @@
+%---------------------------------------------------------------------------------------%
+%---------------------------------------------------------------------------------------%
+%                                                                                       %
+%                                       Applied Macroeconometrics Paper                 %
+%                                                                                       %
+%---------------------------------------------------------------------------------------%
+%---------------------------------------------------------------------------------------%
+
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[headings]{fullpage}
+%\pagestyle{headings}
+\usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \rhead{Marly Tatiana Celis}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}    
+%When using babel or polyglossia with biblatex, loading csquotes is recommended 
+%to ensure that quoted texts are typeset according to the rules of your main language.
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \rhead{Marly Tatiana Celis}
+    \lhead{Groningen University - Utretch University}
+    \lfoot{\href{mailto:m.t.celis.galvez.1@student.rug.nl}{{\tt m.t.celis.galvez.1@student.rug.nl}}}
+%Math packages
+\usepackage{amsfonts,latexsym,amsthm,amssymb,amsmath,amscd,euscript}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage[style=authoryear,sorting=nyt,backend=biber]{biblatex}
+        \addbibresource{references.bib}
+%Images packages
+\usepackage{float}
+    \restylefloat{table}
+\usepackage{tikz}
+    \usetikzlibrary{positioning}
+%tabular packages
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{setspace}
+
+
+%---------------------------------------------------------------------------------------%
+%---------------------------------------------------------------------------------------%
+\title{The best U.S. State to purchase a car? \\
+Spillovers in Vehicles Households Demand}
+\author{Marly Tatiana Celis Galvez}
+\date{March 2021}
+
+
+%---------------------------------------------------------------------------------------%
+%---------------------------------------------------------------------------------------%
+
+\begin{document}
+%\onehalfspacing
+\maketitle
+
+\begin{abstract}
+    This paper explores the existence of spillover effects in the household demand for vehicles, new and used vehicles, during 2019. I use the Consumers Expenditure Survey, the Consumer Price Index, to illustrate 8 spatial models. \\
+    The models Bla \\
+    The findings suggest that bla bla bla \\
+\end{abstract}
+
+\newpage
+\tableofcontents
+
+%---------------------------------------------------------------------------------------%
+%---------------------------------------------------------------------------------------%
+\newpage
+\section{Introduction}
+
+The internet is populated with forums about\textit{the best state to purchase a car}. From conventional fuel-based cars to electric cars. Car buyers consider issues as state sales tax, property tax, registration fees, tax rebates, and so on\footnote{\href{https://forums.tesla.com/discussion/30421/best-state-to-purchase-in}{Tesla Forums}}.
+A relevant question is then how much do spillover effects account for vehicles demand in the US? Are those spillover effects local effects or are they also global effects? 
+To answer such questions I estimate eight spatial econometric models of the vehicle households' demand in the US. I explore the two more common weighted matrices: a contiguity matrix and a distance matrix. \\
+The purpose of this paper is three folded:\\
+First, to provide insights about the existence of spillovers in the demand for vehicles in the US. This is relevant for further analysis of trends in demand and policy implications. \\
+The second purpose is to make use of the data set Consumers Expenditure Survey aiming to enlighten the discussion of complementarities between observed microeconomic demands and aggregated demand. (Thesis) \\
+The final purpose is to provide an overview of the comparison between Stata and Matlab. (I'm actually not entirely sure about this being a purpose. I do want to highlight the requirements. \\
+Why aggregate the demand? At individual level is not observable where the item was bought. The data do not capture this information. Hence, at microeconomic level spillovers are not directly observable.
+Furthermore, studying potential endogenous spillovers (unit A affected by the decisions of unit B) also relates with industrial organization models Hotelling.
+(CHECK HOW TO SAY THIS) Intuition about demand aggregated The possibility of searching for prices and information online beyond the physical boundaries of the individual observation makes it plausible to argue that individual decisions are affected by global trends. \\
+
+\begin{enumerate}
+    \item Why is it valid to use households expenditures?: Because it is at a household level where expenditures take place
+    \item Why is it valid to aggregate by state?: That is a common reference level that households in the US take into account when buying a car. Particularly, in the US forums all over the internet reaffirm them to have this issue in mind when buying a durable good. A kind of word of mouth issue.
+    \item Does it make economic sense?: Yes for three reasons. (1) Each State has different taxation rules and prices dynamics. (2) The transaction cost of buying a vehicle in another State is small compared to total cost of the purchase.(3) Buying durable goods is a decision that is not often made on "one" go. People may want to compare prices that cross some geographical boarders\footnote{The possibility of buying things online makes this aspect more prominent.}.
+\end{enumerate}
+
+
+
+%---------------------------------------------------------------------------------------%
+%---------------------------------------------------------------------------------------%
+\newpage
+\section{Literature review}
+
+\indent The literature from the consumer theory has discussed vastly spatial price discrimination. Partly, the intuition of price differences comes from the supply side. For instance, models of the area of industrial organization and the Hotelling's linear city model. In this models consumers face different prices and transportation costs.
+\indent Nonetheless, as \textcite{DEATON19877} points out transport is frequently difficult and expensive, so that even efficient and fast-moving arbitrageurs cannot bring prices into uniformity.
+If we cannot expect prices to be uniform in small geographical locations, there is no reason to expect prices to follow an uniform distribution in larger geographical areas, where other factors come into place. For instance, taxes that different among municipalities and states. This depend on the particular country.\\
+Deaton: household surveys rarely collect data on market prices. Instead, households are asked to report expenditures on each good over a specified period, together with the quantities purchased. \\
+\indent The author discusses in depth how own and cross-price effects can be estimated when taking into account geographical clusters of households. His methodology is insightful, yet it was two caveats. One the analysis is very context specific. In his case, the analysis of price elasticities for meat, fresh fish, other fish and starches made sense for Cote d'Ivore. The second, the proposed model is much more focused on local effects, but does not account for the complete spatial structure. For this latter issue, it is possibly due to the incipient discussion of spatial econometric methods at that time.\\
+\indent Close to that time, another insightful paper was published. \textcite{khachatryan2011spatial} into a spatial model, we also included distance variables. Distances from each fueling station to the
+closest of five major ethanol blending terminals in the state (e.g., consumers may choose to support
+the local ethanol terminal), and distances to major highways where there are higher concentrations
+of vehicles and thus higher demand for ethanol fuels.
+The distribution of the elasticity estimates with respect to vehicle stock and the number of
+neighboring E85 stations is shown in Figure 4. The coefficients for vehicle stock are statistically
+significant and positive, thus meeting our expectations of a positive influence of vehicle availability
+in the close proximity to fueling stations on fuel sales. They conclude that the resulting price elasticity estimates for ethanol demand revealed significant geographic variation (ranging from 0.5 to 5.0), suggesting that use of spatially disaggregated data provides more detailed empirical results and, therefore, a more thorough understanding by policymakers. \\
+\indent The analysis of spatial price elasticities on demand has been boosted by the introduction of econometric estimators that capture spatial spillover effects\textcite{elhorstslides}.  
+
+Another interesting approach is the one done by \textcite{leselhorst}. Empirical studies of fiscal policy interaction tend to consider either taxation or expenditures for one public service at a time using the spatial lag model
+existing studies overlook the possibility that observed spatial patterns in
+taxes may be the result of expenditure interdependence. Stone-Geary functional form and show that an extended version of the linear expenditure system (LES) results if social welfare is maximized under a government’s budget constraint. \\
+The one food, i consider particularly dificult to grasp
+
+\textcite{KELEJIAN2014140} \\
+Kelejian and Piras (2014), previous spatial econometric studies based on Baltagi and Li’s cigarette demand model did not treat price as being potentially endogenous. Although these studies argue or assume that price differences across states are largely due to state tax differences which are exogenously set by state legislatures, it is likely that demand has a feedback effect on price.
+
+Some literature study the demand for fuel and gasoline
+\textcite{elhorstmadre} Understanding the determinants of car traffic and gasoline demand has been of interest to economists during the past four decades, mainly since the first oil crisis in 1973. In the literature, several measures
+
+For instance, in terms of demand \textcite{CICCARELLI2018131} study a dynamic spatial panel data model with common factors to explain the diffusion process of cigarette consumption in Italy. \\
+The authors find that the direct and indirect effects derived from the coefficient estimates of the model show that cigarettes were a normal good with an income elascticity of 0.4 and price elasticity of -0.4 in the long term. \\
+This price elasticity of -0.4 consists of a direct effect of -0.54 in the own region and a spillover effect to other regions of 0.15. \\
+The positive spillover effect is in line with previous spatial econometric studies which investigated cigarette  demand in the US states over a more recent period.\\
+The authors use per capita consumption of cigarettes.
+The paper from \textcite{CICCARELLI2018131} also provides a survey of the recent literature on spatial econometrics, which provides key insights of the state of the art. Firstly, as they mention 
+
+that control for spatial and time period fixed effects. Second, they mention the inclusion of the dependent variable lagged in time to control for habit persistence. Third, the authors mention the discussion of the need to include spatially lagged independent variables. Fourth, the generalized usage of row-normalized binary contiguity matrices.\\
+With that perspective in mind the present paper aims to contribute to the literature with two insights: (1) a spatio-temporal analysis for shorter span of time, namely four periods, (2) a revisiting perspective of the micro-macro aggregation of consumers demand and the potential usage of household surveys for spatial spillover analysis, and (3) an applied analysis for elasticities on durable goods -in contrast to  non durable (fuel) and perishable goods (food and cigarettes.)
+
+
+
+Intuition behind \\
+And aggregation
+
+
+
+
+
+
+Considering spatial heterogeneity
+in household composition and demand preferences, using stationary estimates to explain pricedemand relationships over a large geographic area may lead to biased results and inference.
+Resulting price elasticity estimates for ethanol demand revealed significant geographic variation
+
+
+
+
+SLX is better for spillover effects \\
+
+
+The well-known Baltagi and Li (2004) panel dataset, explaining cigarette demand for 46 US states over the
+period 1963 to 1992, is used to illustrate this framework in an empirical setting.
+
+
+Since Baltagi and Lee and the bottleleging effect discussion it is well known that price spillover effects exist or can happen in the US. Evidence has been found that  it does occur in the US in gasoline demand, cigarrete demand. \\
+The purpose of this paper is to discuss the possible existence of spillover effects in the demand of electric cars in the US. for instance check  
+
+is it intuitive to aggregate the demand? \textcite{corradofingleton}
+Yes, durable goods\\
+Yes, dynamics that correspond to trends
+
+%---------------------------------------------------------------------------------------%
+%---------------------------------------------------------------------------------------%
+\newpage
+\section{Data sources}
+
+\subsection{Consumers Expenditure Survey}
+
+\indent To illustrate spillovers in the vehicles' demand, in this paper I use the Consumer Expenditure Survey of the U.S collected by the Census Bureau for the Bureau of Labor Statistics (BLS). The Consumer Expenditure Survey microdata has two primary structures of data (i) Interview Survey and (ii) Dairy Survey. I use the Interview Survey for the four quarters of 2019. According to the BLS, the Interview Survey collects detailed data on an estimated 60 to 70 percent of total family expenditures. \\
+\indent The advantages of using this data are at least four. First, the microdata is of public access. Second, the survey presents a comprehensive spending data (not only spending categories but also spending in detailed items). Thirdly, it has a panel structure as it \textit{reinterviews} households, which enables measurements of how a given household’s spending changes over time. Finally, the survey also collects and imputes the income from each household. This is important because in the aggregate it implies that both demand and income comes from a population draw from the same distribution.\\
+\indent I use the quarterly files \textquote{MTBI Monthly expenditures} from which I capture the total cost of item, including sales tax, for the following Universal Classification Codes:
+\begin{itemize}
+    \item New cars UCC 450110
+    \item Used cars UCC 460110
+    \item Vehicle registration state UCC 520111
+    \item Vehicle registration local UCC 520112
+    \item Electric vehicle charging UCC  470311
+\end{itemize}
+
+From the same households I use the file \textquote{FMLI for CU Level income, assets, and liabilities}. From this data set I use the family income before fincbtax.\\
+\indent Finally, I identify the States from the survey. A total of 40 States were part of the survey in 2019. Unfortunately, the data do not aim to represent States dynamics, which is undoubtedly an important caveat for the present analysis\footnote{The CE surveys are designed to produce national expenditure estimates. The estimates are calculated from a relatively small sample of predominantly urban areas. Within these areas, the CE program surveys only a small percentage of those households.}. Nevertheless, is important to recall that the aim of this paper is to provide insights about spatial spillovers in demand, rather than being conclusive about the exact elasticities of the inter-states demand.\\
+
+ADD: Appendix of the code\\
+ADD: Appendix of the table of states\\
+ADD: A summary statistics of the data per state \\
+
+\subsection{Prices}
+Price data are often capture from Consumer Price Indices. The main challenge of this paper approach is that prices need to have two dynamics: (1) time and (2) space. In other words, I need prices per State per quarter from 2019. However, prices are not directly available with those two characteristics. To overcome such a difficulty I propose the calculation of a pseud-price that captures both time and  space dynamics as follows\footnote{Although calculating prices from the CES survey should be possible I did not do it due to time restrictions.}:
+
+\begin{itemize}
+    \item I searched for retail vehicle prices and car ownership costs per State. Such that it included price, sales taxes, and registration costs. The aim was to identify the space dynamics of the prices\footnote{Several websites discuss and present estimations about how much costs vary by State. See for example \href{https://www.urban.org/policy-centers/cross-center-initiatives/state-and-local-finance-initiative/state-and-local-backgrounders/state-and-local-expenditures}{www.urban.org} For the sake of time I used the following source \href{https://www.insurance.com/total-cost-of-ownership}{insurance.com}}.
+    \item I used Special aggregate indexes for \textquote{New and used motor vehicles}. This index has December 1997 as the 100 base. Consumer Price Index the for All Urban Consumers city average, by expenditure category and commodity and service group. This CPI provides the time dynamics per quarter of 2019.\\
+    \begin{center}
+    \begin{tabular}{l|c|c|c|c}
+    \hline
+     2019 & Q1   &  Q2 &    Q3 &    Q4 \\
+    \hline
+    CPI Vehicles & 99.795 & 99.045 &    99.432 &    99.587   \\
+    \hline \hline
+    \end{tabular}    
+    \end{center}
+    \item I compute the price as:\\
+    \begin{align*}
+        p_{it}=\ln{\text{RealPrice}_{it}}=\frac{\text{RetailCost}_i}{\text{CPI}_t} \\
+        i = 1, \dots 40 \qquad t= 1,2,3,4
+    \end{align*}
+    One important thing to notice is that dividing the retail cost by the CPI translate it from nominal to real prices-quarterly. Another important thing is that doing it per state $i$ preserves the space dynamics\footnote{I also calculated a weighted price with a standardized retail costs (mean 0 and variance 1) the distribution were the same, but the price had negative values (because of the standardization process) which is problem when calculating the logarithm.}.
+\end{itemize}
+
+
+
+
+
+
+%---------------------------------------------------------------------------------------%
+%---------------------------------------------------------------------------------------%
+\newpage
+\section{The econometric specification}
+
+\subsection{The models}
+
+Following \textcite{lesagepace} and \textcite{Elhorst2014}
+
+At the beginning of this century, there was no
+straightforward estimation method for this type of models. This was because
+methods developed for dynamic but non-spatial and for spatial but non-dynamic
+panel data models produced biased estimators when these methods/models were
+put together.
+\begin{align*}
+    \text{OLS} \\
+    y & =\alpha \iota_N + \mathbf{X} \beta + \epsilon \\
+    \text{SAR}\\
+    y & =\alpha \iota_N + \mathbf{X} \beta + \mathbb{W} \beta \theta+ \epsilon \\
+    \text{SLX}\\
+     y & = \alpha \iota_N + \mathbf{X} \beta + \mathbb{W}  \beta \theta  + \epsilon \\
+     \text{SEM}\\
+     y & = \rho \mathbb{W}y +\alpha \iota_N + \mathbf{X} \beta + \epsilon \\
+     \text{SAC}\\
+     y & = \rho \mathbb{W}y +\alpha \iota_N + \mathbf{X} \beta + u \qquad \text{where} \qquad u= \lambda \mathbb{W} u + \epsilon \\
+     \text{SDM}\\
+    y & = \rho \mathbb{W}y +\alpha \iota_N + \mathbf{X} \beta + \mathbb{W}  \beta \theta+ \epsilon \\
+    \text{SDEM}\\
+    y & = \alpha \iota_N + \mathbf{X} \beta + \mathbb{W}  \beta \theta+ u \qquad \text{where} \qquad u= \lambda \mathbb{W} u + \epsilon \\
+    \text{GNS}\\
+    y & = \rho \mathbb{W}y +\alpha \iota_N + \mathbf{X} \beta + \mathbb{W}  \beta \theta+ u \qquad \text{where} \qquad u= \lambda \mathbb{W} u + \epsilon \\
+\end{align*}
+
+I consider the demand as an aggregate, not per-capita consumption of vehicles. The main reason is that the dynamics are to be found in the aggregate. This is a matter of the discussion led by \textcite{DEATON19877} **And Muellbauer**
+
+
+\subsection{The Weighted Matrix}
+
+Binary - Row Normalized $W$\\
+Inverse Distance $W_{inv}$\\
+gamma function $W_g$\\
+
+
+%---------------------------------------------------------------------------------------%
+%---------------------------------------------------------------------------------------%
+\newpage
+\section{Estimation}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[] \centering
+\begin{tabular}{lcccccccc}
+\toprule
+                             & OLS    & SAR    & SEM    & SLX    & SDM    & SDEM   & SAC    & GNS    \\
+                             \midrule
+\multirow{2}{*}{Ln Price}     & 0.505   & 0.642   & 0.536   & -0.079   & 0.028    & -0.116   & 0.513    & -1.238   \\
+                             & (0.197) & (0.215) & (0.18)  & (-0.03)  & (0.009)  & (-0.038) & (0.171)  & (-0.388) \\
+\multirow{2}{*}{Ln Income}   &    2.63     & 2.632   & 2.626   & 2.609    & 2.601    & 2.607    & 2.614    & 2.777    \\
+                             &  (9.84)       & (8.476) & (8.458) & (9.632)  & (8.323)  & (8.336)  & (8.427)  & (9.427)  \\
+\multirow{2}{*}{WLnDemand} &         & 0.073   &         &          & 0.069    &          & 0.268    & -0.718   \\
+                             &         & (0.78)  &         &          & (0.672)  &          & (1.531)  & (-5.413) \\
+\multirow{2}{*}{W Ln Price}  &         &         &         & -5.583   & -5.594   & -5.775   &          & -5.326   \\
+                             &         &         &         & (-1.192) & (-1.035) & (-1.058) &          & (-0.897) \\
+\multirow{2}{*}{W Ln Income} &         &         &         & 0.314    & 0.149    & 0.347    &          & 2.544    \\
+                             &         &         &         & (0.574)  & (0.217)  & (0.544)  &          & (3.392)  \\
+\multirow{2}{*}{W u}         &         &         & 0.055   &          &          & 0.077    & -0.233   & 0.667    \\
+                             &         &         & (0.535) &          &          & (0.756)  & (-1.047) & (7.63)   \\
+                             \midrule
+$R^2$         & 0.607  & 0.415  & 0.414  & 0.613  & 0.421  & 0.422  & 0.598  & 0.502  \\
+Log Lik              & -332.6 & -332.5 & -332.6 & -331.6 & -331.6 & -331.5 & -332.1 & -328.7 \\
+%Note: & t-values&  are reported in parentheses.\\
+\bottomrule
+\end{tabular}
+%\caption{}
+\end{table}
+
+
+From the estimation of the  static panel we can calculate the spillover effects
+\begin{table}[] \centering
+\begin{tabular}{lccccccc}
+\toprule
+  & OLS & SAR & SEM & SLX & SAC & SDEM & GNS \\
+  \midrule
+                           & \multicolumn{7}{l}{Direct effects}                                     \\
+                           \midrule
+\multirow{2}{*}{LnPrice}   & 0.505   & 0.559   & 0.536   & -0.079   & 0.701   & -0.116   & -0.309   \\
+                           & (0.197) & (0.194) & (0.18)  & (-0.03)  & (0.223) & (-0.038) & (-0.105) \\
+\multirow{2}{*}{Ln Income} & 2.630   & 2.634   & 2.626   & 2.609    & 2.723   & 2.607    & 2.639    \\
+                           & (9.84)  & (8.167) & (8.458) & (9.632)  & (8.53)  & (8.336)  & (9.172)  \\
+                           \midrule
+                           & \multicolumn{7}{l}{Spillover effects}                  
+                           \\
+                           \midrule
+\multirow{2}{*}{LnPrice}   &         & 0.058   &         & -5.583   & 0.426   & -5.775   & -3.686   \\
+                           &         & (0.148) &         & (-1.192) & (0.215) & (-1.058) & (-1.036) \\
+\multirow{2}{*}{Ln Income} &         & 0.210   &         & 0.314    & 1.049   & 0.347    & 0.470    \\
+                           &         & (0.725) &         & (0.574)  & (1.109) & (0.544)  & (0.993) \\
+                           \bottomrule
+\end{tabular}
+\end{table}
+
+%%
+The next estimation corresponds to the SDM SDEM GNS with the inverse distance matrix
+
+\begin{table}[] \centering
+\caption{Regressions with Inverse Distance Matrix}
+\begin{tabular}{lllc}
+\toprule
+                             & SDM                       & SDEM                      & \multicolumn{1}{l}{GNS}      \\
+                             \midrule
+\multirow{2}{*}{LnPrice}     & \multicolumn{1}{c}{0.259} & \multicolumn{1}{c}{0.167} & 0.085                        \\
+                             & (0.082)                   & (0.053)                   & \multicolumn{1}{l}{(0.027)}  \\
+\multirow{2}{*}{Ln Income}   & \multicolumn{1}{c}{2.653}  & \multicolumn{1}{c}{2.626}   & 2.611   \\
+                             & (8.123)                   & (8.066)                   & \multicolumn{1}{l}{(7.952)}  \\
+\multirow{2}{*}{W Inv Ln Demand} & \multicolumn{1}{c}{0.020} & \multicolumn{1}{c}{}      & -0.296                       \\
+                             & (0.08)                    &                           & \multicolumn{1}{l}{(-0.399)} \\
+\multirow{2}{*}{W Inv Ln Price}  & \multicolumn{1}{c}{-8.705} & \multicolumn{1}{c}{-10.707} & -11.123 \\
+                             & (-0.432)                  & (-0.553)                  & \multicolumn{1}{l}{(-0.556)} \\
+\multirow{2}{*}{W Inv ln Income} & \multicolumn{1}{c}{0.412}  & \multicolumn{1}{c}{0.202}   & 0.642   \\
+                             & (0.221)                   & (0.113)                   & \multicolumn{1}{l}{(0.299)}  \\
+\multirow{2}{*}{W Inv u}         & \multicolumn{1}{c}{}      & \multicolumn{1}{c}{0.101} & 0.341                        \\
+                             &                           & (0.409)                   & \multicolumn{1}{l}{(0.583)}  \\
+                             \midrule
+$R^2$                            & 0.4145                    & 0.4147                    & 0.611                        \\
+Log Likelihood               & -332.231                  & -332.293                  & -332.2                      \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The direct and spillover effects for the 
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[] \centering
+\caption{Direct and spillover effects from regressions with Inverse Distance Matrix}
+\begin{tabular}{lccc}
+\toprule
+                           & SDM & SDEM & GNS  \\
+                           \midrule
+                           & \multicolumn{3}{c}{Direct effects}                                           \\
+\multirow{2}{*}{LnPrice}   & 0.276                   & 0.167                    & 0.241                   \\
+                           & (0.083)                 & (0.053)                  & (0.056)                 \\
+\multirow{2}{*}{Ln Income} & 2.667                   & 2.626                    & 2.628                   \\
+                           & (8.05)                  & (8.066)                  & (6.412)                 \\
+                           \midrule
+                           & \multicolumn{3}{c}{Spillover effects}                                        \\
+\multirow{2}{*}{LnPrice}   & -6.807                  & -10.707                  & -8.930                  \\
+                           & (-0.336)                & (-0.553)                 & (-0.122)                \\
+\multirow{2}{*}{Ln Income} & 0.436                   & 0.202                    & -0.187                  \\
+                           & (0.25)                  & (0.113)                  & (-0.03)                \\
+                           \bottomrule
+\end{tabular}
+\end{table}
+
+
+The next one uses the gamma function for the inverse distance matrix
+
+
+
+\begin{table}[] \centering
+\caption{Regressions with gamma function for the inverse distance matrix}
+\begin{tabular}{lrrr}
+\toprule
+                                & SDM & SDEM & GNS \\
+                                \midrule
+\multirow{2}{*}{LnPrice}        & 0.52                    & 0.59                     & 0.52                    \\
+                                & (0.175)                 & (0.197)                  & (0.176)                 \\
+\multirow{2}{*}{Ln Income}      & 2.60                    & 2.61                     & 2.59                    \\
+                                & (8.289)                 & (8.363)                  & (8.382)                 \\
+\multirow{2}{*}{W Gm Ln Demand} & 0.05                    &                          & 0.52                    \\
+                                & (0.211)                 &                          & (2.677)                 \\
+\multirow{2}{*}{W Gm Ln Price}  & 7.38                    & 4.73                     & 3.57                    \\
+                                & (0.53)                  & (0.355)                  & (0.282)                 \\
+\multirow{2}{*}{W Gm ln Income} & -0.83                   & -0.56                    & -1.87                   \\
+                                & (-0.546)                & (-0.399)                 & (-1.146)                \\
+W Gm u                          &                         & 0.06                     & -0.48                   \\
+                                &                         & (0.229)                  & (-2.087)                \\
+                                \midrule
+$R^2$            & 0.42                    & 0.42                     & 0.59                    \\
+Log Likelihood                  & -332.24                 & -332.11                  & -331.99                \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The following are the direct and indirect effects
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[] \centering
+\caption{Direct and spillover effects from regressions with gamma function for distance matrix}
+\begin{tabular}{lccc} 
+\toprule
+                           & SDM & SDEM & GNS \\
+                           \midrule
+                           & \multicolumn{3}{c}{Direct effects}                                           \\
+\multirow{2}{*}{LnPrice}   & 0.5345                  & 0.588                    & 0.4651                  \\
+                           & (0.181)                 & (0.197)                  & (0.044)                 \\
+\multirow{2}{*}{Ln Income} & 2.61                    & 2.612644                 & 0.1812                  \\
+                           & (8.222)                 & (8.363)                  & (0.009)                 \\
+                           \midrule
+                           & \multicolumn{3}{c}{Spillover effects}                                        \\
+\multirow{2}{*}{LnPrice}   & 0.9646                  & 4.732                    & 2.5937                  \\
+                           & (0.53)                  & (0.355)                  & (1.982)                 \\
+\multirow{2}{*}{Ln Income} & -0.0863                 & -0.561                   & -0.0362                 \\
+                           & (-0.48)                 & (-0.399)                 & (-0.014)               \\
+                           \bottomrule
+\end{tabular}
+\end{table}
+
+
+%---------------------------------------------------------------------------------------%
+%---------------------------------------------------------------------------------------%
+\newpage
+\section{Discussion}
+
+\textbf{ABOUT THE DISTANCE}: Once a household have decided to go to another state to buy a vehicle, the exact distance may be irrelevant. Put in other words the marginal cost of going further tends to zero. Given this hypothesis the use of inverse distance matrices does not have econonmic intuition in this study. Also provides a plausable explanation of the results.\\
+
+\textbf{Other models}: Dynamic models. Considering a longer span of time should provide better insights and further findings. I would suggest that about three-quarterly years could account for the spatio-temporal dynamics on the vehicles' demand. \\
+
+\textbf{TEST} : CD- test Bayesians
+
+%---------------------------------------------------------------------------------------%
+%---------------------------------------------------------------------------------------%
+\newpage
+\section{Appendix}
+
+\subsection{Plots}
+
+\subsection{Code}
+
+%---------------------------------------------------------------------------------------%
+%---------------------------------------------------------------------------------------%
+\newpage
+\section{References}
+
+\printbibliography
+
+
+\end{document}

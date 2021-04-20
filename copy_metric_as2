@@ -1,0 +1,688 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                                   %%
+%                                                                                   %%
+%                                                                                   %%
+%                                                                                   %%
+%                       Document: writing by Marly Tatiana Celis Galvez             %%
+%                       Assignment Part I Time Series Applied Macroeconometrics     %%
+\documentclass[11pt]{article}
+\usepackage[margin=70pt]{geometry}
+
+%References
+\usepackage[style=authoryear,sorting=nyt,backend=biber]{biblatex}
+        \addbibresource{D:/Thesis/to_overleaf.bib}
+
+%
+\usepackage{shellesc}
+\usepackage{minted}
+%[cache=false]
+%       
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}    
+%When using babel or polyglossia with biblatex, loading csquotes is recommended 
+%to ensure that quoted texts are typeset according to the rules of your main language.
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \rhead{Marly Tatiana Celis}
+    \lhead{Groningen University - Utretch University}
+    \lfoot{\href{mailto:m.t.celis.galvez.1@student.rug.nl}{{\tt m.t.celis.galvez.1@student.rug.nl}}}
+%Math packages
+\usepackage{amsfonts,latexsym,amsthm,amssymb,amsmath,amscd,euscript}
+\usepackage{mathtools}
+%Images packages
+\usepackage{float}
+\restylefloat{table}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\pagestyle{fancy}
+
+%$ latex -shell-escape input
+%                                                                                   %%
+%                                                                                   %%
+%                                                                                   %%
+%                                                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                                   %%
+%                                                                                   %%
+%                                                                                   %%
+\begin{document}
+%                                                                                   %%
+%                                                                                   %%
+%                                                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center} 
+    \Large Applied Macroeconometrics 2021 \\
+    Assignment Part II Cross-Sectional Dependence
+\end{center} 
+
+This document contains my solutions for the assignment 2 for the course Applied Macro Econometrics 2021, an elective taken at Groningen University. \\
+Along with it I attach three Matlab scripts:
+\begin{itemize}
+    \item first\_question.m
+    \item second\_question.m
+    \item third\_question.m
+\end{itemize}
+
+\indent Marly Tatiana Celis Galvez \\
+\indent Research Master - Multidisciplinary Economics \\
+\indent Utrecht University \\
+
+\tableofcontents
+
+\newpage
+
+\section{Bucky spatial}
+
+% \begin{enumerate}
+%     \item Background about bucky
+%     \item Sparsity index of W
+%     \item Symmetry
+%     \item Row-normalize
+%     \item Eigenvalues
+%     \item Second-order binary contiguity
+%     \item Inverse distance matrix
+% \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Background about bucky}
+Collect background information about “bucky” and next provide a description of what this matrix is representing.\\
+
+The Bucky ball adjacency matrix is a 60-by-60 symmetric matrix B. B has three nonzero elements in each row and column, for a total of 180 nonzero values. (See \href{http://www.ece.northwestern.edu/local-apps/matlabhelp/techdoc/math_anal/sparse12.html}{ece.northwestern.edu About The Bucky Ball as a graph}). Matlab describes it as an application of sparse matrices that helps explaining the relationship between graphs and matrices\footnote{One example is the connectivity graph of the Buckminster Fuller geodesic dome, which is also in the shape of a soccer ball or a carbon-60 molecule, represented by the Bucky Matrix}. 
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+         \includegraphics[width=\textwidth]{plots/bucky1.png}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+          \includegraphics[width=\textwidth]{plots/bucky2.png}
+    \end{subfigure}
+    \caption{Bucky  Ball - Sparse Matrix}
+    \label{fig:bucky}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sparsity index of W}    
+The sparcity index of Bucky is 95\%
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\begin{minted}[linenos=true,bgcolor=bg]{matlab}
+non_zero=sum(W~=0,'all')
+count_rows=height(W); %Computes number of rows in W
+count_columns=width(W);  %Computes number of columns in W
+total_elements= count_rows*count_columns
+sparcity=(non_zero/total_elements)*100
+\end{minted}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Symmetry} 
+Write one or more command lines which can be used to check whether W is symmetric. This may be of help to you to check your answers on later questions.    
+
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\begin{minted}[linenos=true,bgcolor=bg]{matlab}
+W_trans=W'
+verify_sym=W_trans-W
+spy(verify_sym)
+%alternative
+issymmetric(W)
+\end{minted}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Row-normalize} 
+Write one or more command lines that row-normalize W, thereby, not using the routine normw.
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\begin{minted}[linenos=true,bgcolor=bg]{matlab}
+sum_rows=sum(W,2)
+W_norm=W./sum_rows
+\end{minted}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Eigenvalues}
+ Calculate the smallest and the largest eigenvalues of W and next determine on which interval the
+% spatial autoregressive parameter would be defined when estimating a spatial autoregressive
+% (SAR) model using the row-normalized W from the previous question.
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\begin{minted}[linenos=true,bgcolor=bg]{matlab}
+e_1=eig(W)
+omega_min=min(e_1)
+omega_max=max(e_1)
+e_2=eig(W_norm)
+omega_min2=min(e_2)
+omega_max2=max(e_2)
+lower_bound=1/omega_min2
+upper_bound=1/omega_max2
+\end{minted}
+
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Second-order binary contiguity} 
+
+The row-normalized W from the two previous questions is a first-order binary contiguity matrix. Write one or more command lines creating a row-normalized second-order binary contiguity matrix.
+The matrix W2 will reflect  second-order contiguous neighbors, those that are neighbors to the first-order neighbors. Since the neighbor of the neighbor (second-order neighbor) to an observation i includes observation i itself, W2 has positive elements on the diagonal when each observation has at least one neighbor.
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\begin{minted}[linenos=true,bgcolor=bg]{matlab}
+W_second=W_norm*W_norm
+spy(W_second)
+\end{minted}
+
+
+\begin{figure}[h!]
+    \centering
+     \includegraphics[width=0.40\textwidth]{plots/second_order.png}
+      \caption{Second Order Matrix}
+    \label{fig:bucky}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Inverse distance matrix}
+Write one or more command lines creating a row-normalized inverse distance matrix between the N=60 units 
+Using the fact that Bucky can be read as a graph I use the command graph and the use the command distances
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\begin{minted}[linenos=true,bgcolor=bg]{matlab}
+G_2=graph(W)
+d = distances(G)
+min(d) 
+max(d) % The maximum distance is indeed 9
+identity = ones(60,60)
+inverse_d=inv(d)
+inv_d = inverse_d.*identity
+\end{minted}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\section{Mathematical and numerical questions}
+
+\subsection{W2=2}
+Mathematically verify that $W^2=W$ if all elements of $W$ are equal to each other (including the diagonal) and the elements in each row sum up to 1. Also verify this property numerically in Matlab for N=60.
+    
+    \begin{align*}
+    W_{n,n} & = 
+        \begin{pmatrix}
+        a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+        a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        a_{m,1} & a_{m,2} & \cdots & a_{n,n} 
+        \end{pmatrix}
+    \end{align*}
+    \begin{align*}
+        \sum_{j=1}^{N} a_{ij} &= 1 \Rightarrow  a_{1,1} \; a_{1,2} \; = \dots \; = \; a_{n,n} = a_{i,j} \\
+         a_{i,j} \; & + \; a_{i,j} \; + \;  a_{i,j} \; = \dots \; = \; 1 \\
+         N a_{ij} & = \; 1 \Rightarrow  a_{ij}  \; \frac{1}{N}
+    \end{align*}
+    
+    \begin{align*}
+    W_{n,n} & = 
+        \begin{pmatrix}
+        \frac{1}{N}  & \frac{1}{N} & \cdots & \frac{1}{N} \\
+        \frac{1}{N} & \frac{1}{N} & \cdots & \frac{1}{N} \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        \frac{1}{N} & \frac{1}{N} & \cdots & \frac{1}{N}
+        \end{pmatrix}
+    \end{align*}
+    
+        \begin{align*}
+    [W_{n,n}]^2 & = 
+        \begin{pmatrix}
+        \frac{1}{N}  & \frac{1}{N} & \cdots & \frac{1}{N} \\
+        \frac{1}{N} & \frac{1}{N} & \cdots & \frac{1}{N} \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        \frac{1}{N} & \frac{1}{N} & \cdots & \frac{1}{N}
+        \end{pmatrix}
+        *
+        \begin{pmatrix}
+        \frac{1}{N}  & \frac{1}{N} & \cdots & \frac{1}{N} \\
+        \frac{1}{N} & \frac{1}{N} & \cdots & \frac{1}{N} \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        \frac{1}{N} & \frac{1}{N} & \cdots & \frac{1}{N}
+        \end{pmatrix}
+    \end{align*}    
+
+    \begin{align*}
+    [W_{n,n}]^2 & = 
+        \begin{pmatrix}
+        \frac{1}{N} \frac{1}{N} + \frac{1}{N} \frac{1}{N} + \frac{1}{N} \frac{1}{N} + \dots + \frac{1}{N} \frac{1}{N} & \qquad \frac{1}{N} & \cdots & \frac{1}{N} \\
+        & &  \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        & &  \\
+        \frac{1}{N} & \frac{1}{N} & \cdots & \frac{1}{N}
+        \end{pmatrix}
+    \end{align*}
+    
+        \begin{align*}
+    [W_{n,n}]^2 & = 
+        \begin{pmatrix}
+        \frac{1}{N^2} + \frac{1}{N^2} + \frac{1}{N^2}  + \dots + \frac{1}{N^2} & \qquad \frac{1}{N} & \cdots & \frac{1}{N} \\
+        & &  \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        & &  \\
+        \frac{1}{N} & \frac{1}{N} & \cdots & \frac{1}{N}
+        \end{pmatrix}
+    \end{align*}
+    
+    \begin{align*}
+    [W_{n,n}]^2 & = 
+        \begin{pmatrix}
+        \frac{N}{N^2} & \frac{N}{N^2} & \cdots & \frac{N}{N^2} \\
+        & &  \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        & &  \\
+        \frac{N}{N^2} & \frac{N}{N^2} & \cdots & \frac{N}{N^2}
+        \end{pmatrix}
+    \end{align*}
+    
+    \begin{align*}
+    [W_{n,n}]^2 & = 
+  \begin{pmatrix}
+        \frac{1}{N}  & \frac{1}{N} & \cdots & \frac{1}{N} \\
+        \frac{1}{N} & \frac{1}{N} & \cdots & \frac{1}{N} \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        \frac{1}{N} & \frac{1}{N} & \cdots & \frac{1}{N}
+        \end{pmatrix}
+    \end{align*}
+    
+    \begin{equation*}
+    \therefore \qquad [W_{n,n}]^2 = W_{n,n}
+    \end{equation*}
+    
+    
+\subsection{Diagonals of W different from 0}
+
+Mathematically verify that this property no longer holds if the diagonal elements of $W$ are zero. Note the elements in each row should still sum up to 1. Also verify this property numerically in Matlab for $N=60$.
+    
+    \begin{align*}
+    W_{n,n} & = 
+        \begin{pmatrix}
+        0 & a_{1,2} & \cdots & a_{1,n} \\
+        a_{2,1} & 0 & \cdots & a_{2,n} \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        a_{m,1} & a_{m,2} & \cdots & 0
+        \end{pmatrix}
+    \end{align*}
+    \begin{align*}
+        &  d_{ij} + \sum_{j=1}^{N-1} a_{ij} = 1 \Rightarrow \sum_{j=1}^{N-1} a_{ij} = 1 -  d_{ij} \\
+        & (N-1) a_{ij}= 1- d_{ij} \Rightarrow d_{ij}=0 \\
+        & a_{ij} = \frac{1}{N-1}
+    \end{align*}
+    
+        \begin{align*}
+    W_{n,n} & = 
+        \begin{pmatrix}
+        0  & \frac{1}{N-1} & \cdots & \frac{1}{N-1} \\
+        \frac{1}{N-1} & 0& \cdots & \frac{1}{N-1} \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        \frac{1}{N-1} & \frac{1}{N-1} & \cdots & 0
+        \end{pmatrix}
+    \end{align*}
+    
+            \begin{align*}
+    [W_{n,n}]^2 & = 
+        \begin{pmatrix}
+       0 & \frac{1}{N-1} & \cdots & \frac{1}{N-1} \\
+        \frac{1}{N-1} & 0 & \cdots & \frac{1}{N-1} \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        \frac{1}{N-1} & \frac{1}{N-1} & \cdots & 0
+        \end{pmatrix}
+    *
+        \begin{pmatrix}
+       0 & \frac{1}{N-1} & \cdots & \frac{1}{N-1} \\
+        \frac{1}{N-1} & 0 & \cdots & \frac{1}{N-1} \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        \frac{1}{N-1} & \frac{1}{N-1} & \cdots & 0
+        \end{pmatrix}
+    \end{align*}
+    
+    \begin{align*}
+    [W_{n,n}]^2 & = 
+        \begin{pmatrix}
+        0  + \frac{1}{N-1} \frac{1}{N-1} + \dots + \frac{1}{N-1} \frac{1}{N-1} & \qquad 0 +0 +\frac{1}{N-1}\frac{1}{N-1} & \cdots & 0+0 + \frac{1}{N-1}\frac{1}{N-1} \\
+        & &  \\
+        \vdots  & \frac{1}{(N-1)^2} + 0+\frac{1}{(N-1)^2}    & \ddots & \vdots  \\
+        & &  \\
+        0+0 + \frac{1}{N-1}\frac{1}{N-1} & 0+0 + \frac{1}{N-1}\frac{1}{N-1} & \cdots &  \frac{1}{N-1} \frac{1}{N-1} +0
+        \end{pmatrix}
+    \end{align*}
+    
+        \begin{align*}
+    [W_{n,n}]^2 & = 
+        \begin{pmatrix}
+        0  + \frac{1}{(N-1)^2}  + \dots + \frac{1}{(N-1)^2} & \qquad  0  + 0 + \frac{1}{(N-1)^2}   & \cdots &  0  + \frac{1}{(N-1)^2} + 0  \\
+        & &  \\
+        \vdots  &   \frac{1}{(N-1)^2} + 0+\frac{1}{(N-1)^2}   & \ddots & \vdots  \\
+        & &  \\
+       0  + \frac{1}{(N-1)^2} + 0 & \frac{1}{(N-1)^2} +  0  + 0 & \cdots &     0  + \frac{1}{(N-1)^2}  + \dots + \frac{1}{(N-1)^2}
+        \end{pmatrix}
+    \end{align*}
+    
+    \begin{align*}
+    [W_{n,n}]^2 & = 
+        \begin{pmatrix}
+        \frac{N-1}{(N-1)^2} &\qquad \frac{1}{(N-1)^2} & \cdots & \frac{1}{(N-1)^2} \\
+        & &  \\
+        \vdots  & \frac{N-1}{(N-1)^2}  & \ddots & \frac{1}{(N-1)^2}  \\
+        & &  \\
+        \frac{1}{(N-1)^2} & \frac{1}{(N-1)^2} & \cdots & \frac{N-1}{(N-1)^2}
+        \end{pmatrix}
+    \end{align*}
+    
+    \begin{align*}
+    [W_{n,n}]^2 & = 
+        \begin{pmatrix}
+        \frac{1}{N-1} &\qquad \frac{1}{(N-1)^2} & \cdots & \frac{1}{(N-1)^2} \\
+        & &  \\
+        \vdots  & \frac{1}{N-1} & \ddots & \frac{1}{(N-1)^2}  \\
+        & &  \\
+        \frac{1}{(N-1)^2} & \frac{1}{(N-1)^2} & \cdots & \frac{1}{N-1}
+        \end{pmatrix}
+    \end{align*}
+        
+    \begin{equation*}
+  \therefore \qquad  [W_{n,n}]^2 \neq W_{n,n}
+    \end{equation*}
+    
+\subsection{Perfect solution}    
+Verify the existence of the perfect solution problem on one of the slides (43) of the course. Tip: consider vectors and matrices in full form, i.e., write out all the individual elements. Also verify this property numerically in Matlab using $Y=[1 2 … 59 \; 60]’$ for $N=60$.
+
+\begin{align*}
+    Y =& \rho \mathbf{W} Y + \alpha \iota_N + \mathbf{X} \beta +\varepsilon \\
+    &\rho = -1 \\
+    &\mathbf{W} = \frac{1}{d_{ij}^{\gamma}} \\
+    &\alpha = Y1  \; Y2  \;\dots \; 59 \; 60 \\
+    &\beta =0 \\
+    & \gamma=0 \\
+    \hat{Y} =& \rho \mathbf{W} Y + \alpha \iota_N  \\
+\end{align*}
+
+First I show what happens with the matrix $W$
+
+
+       \begin{align*}
+    W_{i,j} & = 
+        \begin{bmatrix}
+        0  & \frac{1}{d_{12}^{\gamma}} & \cdots & \frac{1}{d_{1j}^{\gamma}} \\
+        \frac{1}{d_{21}^{\gamma}} & 0& \cdots & \frac{1}{d_{2j}^{\gamma}} \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        \frac{1}{d_{i1}^{\gamma}} & \frac{1}{d_{i2}^{\gamma}} & \cdots & 0
+        \end{bmatrix} \Rightarrow \gamma =0 \Rightarrow d_{ij}=1 \Rightarrow
+        \begin{bmatrix}
+        0  & 1 & \cdots & 1 \\
+        1 & 0 & \cdots & 1 \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        1 & 1 & \cdots & 0
+        \end{bmatrix}
+    \end{align*}
+Now I can use $W$ in the equation of the SAR model
+\begin{align*}
+    = 
+    \rho \times      \begin{bmatrix}
+        0  & 1 & \cdots & 1 \\
+        1 & 0 & \cdots & 1 \\
+        \vdots  & \vdots  & \ddots & \vdots  \\
+        1 & 1 & \cdots & 0
+        \end{bmatrix} \times     \begin{bmatrix}
+    1 \\
+    2 \\
+    3 \\
+    \vdots \\
+    59 \\
+    60
+    \end{bmatrix} + [1 \; 2\; 3 \; \dots \; 59 \; 60] \times \begin{bmatrix}
+    1 \\
+    2 \\
+    3 \\
+    \vdots \\
+    59 \\
+    60
+    \end{bmatrix}
+\end{align*}
+
+\begin{align*}
+   =
+    \begin{bmatrix}
+    -1829 \\
+    -1828 \\
+    -1827 \\
+    \vdots \\
+    -1772 \\
+    -1771 \\
+    -1770
+    \end{bmatrix}
+    + 1830
+\end{align*}
+
+\begin{align*}
+    =
+  \begin{bmatrix}
+    1 \\
+    2 \\
+    3 \\
+    \vdots \\
+    59 \\
+    60
+    \end{bmatrix}
+\end{align*}
+
+   \begin{equation*}
+    \therefore \qquad Y = \hat{Y}
+    \end{equation*}
+
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\begin{minted}[linenos=true,bgcolor=bg]{matlab}
+N= 60;
+y =(1:N)';
+rho = -1;
+alpha = y'
+v_diag= zeros(1,N);
+iota=(ones(1,N))';
+W=ones(N:N);
+W=W-diag(diag(W))+ diag(v_diag);
+y_fit = rho*W*y +alpha*iota;
+verify = y - y_fit
+(y == y_fit)
+\end{minted}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Monte Carlo simulation with Matlab}
+Consider the spatial cross-sectional model of $N=60$ units in vector form: $Y=\delta W Y+ \alpha_{lN}+X\beta+WX\theta+\epsilon$.\\
+Let $\delta=0.5, \alpha=0.1, \beta=0.25 , \theta=-0.1$ and $\epsilon ~N(0, \sigma^2=0.01)$. Assume that there is only one X variable, whose values are $X=[1 \; 2 \dots  59 \; 60]'$. $W$ is the row-normalized bucky matrix of question 4 (first-order binary contiguity matrix).
+
+\begin{enumerate}
+    \item Study the file \textquote{sarpaul} and specify in which lines of this routine, the steps of slide 48 of the course are carried out. Explain how to estimate the parameters of $WX$ variables in sarpaul using the computer lab.
+    \item Also verify whether the variance-covariance determined in this computer program matches with the mathematical form of the variance-covariance matrix (eq. 3.5) derived in Lee (2004).
+    \item Draw the error term from its normal distribution, using the command randn, generate the $N*1$ vector Y using the above model, parameter and X values, and next estimate the parameters of the above model using the file “sarpaul”. Do so in a loop that is repeated $1000$ times.
+    \item Use the 1000 estimates obtained to calculate the mean values obtained for $\delta, \alpha \beta$ and $\theta$ compare this with the original values that were used to generate $Y$. What do you conclude from this? Are these results similar-different from the MC simulation results in Lee (2004, Section 7)?
+\end{enumerate}
+
+\subsection{Steps Slide 48 and sarpaul routine}
+
+\begin{enumerate}
+    \item Regress both Y and WY on X by OLS → b0 and b1
+    \definecolor{bg}{rgb}{0.95,0.95,0.95}
+    \begin{minted}[linenos=true,bgcolor=bg]{matlab}
+    lambda=real(eig(full(W)));
+    %lambda=eig(W);
+    rmin=-1/abs(min(real(lambda)));
+    rmax=1/abs(max(lambda));
+    %rmin=-1;
+    %rmax=1;
+    Wy = W*y;
+    AI = x'*x;
+    b0 = AI\(x'*y);
+    bd = AI\(x'*Wy);
+    \end{minted}
+
+  \item Compute residuals of both regressions
+    \definecolor{bg}{rgb}{0.95,0.95,0.95}
+    \begin{minted}[linenos=true,bgcolor=bg]{matlab}
+    e0 = y - x*b0;
+    ed = Wy - x*bd;
+    epe0 = e0'*e0;
+    eped = ed'*ed;
+    epe0d = ed'*e0;
+    \end{minted}
+
+  \item Substitute residuals into log-likelihood function maximize it with respect to $\rho$
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\begin{minted}[linenos=true,bgcolor=bg]{matlab}
+options.Display='off';
+options.MaxFunEvals=1000;
+options.MaxIter=1000;
+options.TolX=0.001;
+options.TolFun=0.001;
+% options = optimset('fminbnd');
+[rho,FVAL,EXITFLAG,OUTPUT]= fminbnd('f_sarpaul',rmin,rmax,options,lambda,epe0,eped,epe0d,n);
+    \end{minted}
+
+  \item Compute $\beta = b0-\rho b_1$
+    \definecolor{bg}{rgb}{0.95,0.95,0.95}
+    \begin{minted}[linenos=true,bgcolor=bg]{matlab}
+    results.beta = b0 - rho*bd; 
+    results.rho = rho; 
+    bhat = results.beta;
+    results.sige = (1/n)*(e0-rho*ed)'*(e0-rho*ed); 
+    sige = results.sige;
+    BI=(eye(n) - rho*W)\eye(n);
+    results.yhat = BI*(x*results.beta);
+    results.resid = y - rho*Wy-x*results.beta; 
+    parm = [results.beta
+            results.rho
+            results.sige];
+    results.parm=parm;
+    results.lik = f2_sarpaul(parm,y,x,W,lambda);
+    \end{minted}
+
+\item Determine variance-covariance matrix based on full log-likelihood function.
+    \definecolor{bg}{rgb}{0.95,0.95,0.95}
+        \begin{minted}[linenos=true,bgcolor=bg]{matlab}
+        WB = W*BI;
+    pterm = trace(WB*WB + WB*WB');
+    xpx = zeros(nvar+2,nvar+2);               
+    % bhat,bhat
+    xpx(1:nvar,1:nvar) = (1/sige)*(x'*x);     
+    % bhat,rho
+    xpx(1:nvar,nvar+1) = (1/sige)*x'*W*BI*x*bhat;
+    xpx(nvar+1,1:nvar) = xpx(1:nvar,nvar+1)'; 
+    % rho,rho
+    xpx(nvar+1,nvar+1) = (1/sige)*bhat'*x'*BI'*W'*W*BI*x*bhat + pterm;
+    xpx(nvar+2,nvar+2) = n/(2*sige*sige);     
+    %sige,sige
+    xpx(nvar+1,nvar+2) = (1/sige)*trace(WB);  
+    % rho,sige
+    xpx(nvar+2,nvar+1) = xpx(nvar+1,nvar+2);
+    xpxi = xpx\eye(size(xpx));
+    results.xpx=xpx;
+    results.cov=xpxi;
+    results.parm=parm;
+    tmp = diag(xpxi(1:nvar+1,1:nvar+1));
+    bvec = [results.beta
+            results.rho];
+    tmp = bvec./(sqrt(tmp));
+    results.tstat = tmp;
+       \end{minted}
+\end{enumerate}
+
+How to esitmate the paremters of $WX$ using the computer lab:
+ \definecolor{bg}{rgb}{0.95,0.95,0.95}
+        \begin{minted}[linenos=true,bgcolor=bg]{matlab}
+% Create WX variables
+for t=1:T
+    t1=(t-1)*N+1;t2=t*N;
+    wx(t1:t2,:)=W*x(t1:t2,:);
+end
+    \end{minted}
+
+\subsection{Variance-covariance}
+
+
+\subsection{Code}
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\begin{minted}[linenos=true,bgcolor=bg]{matlab}
+%% 
+% Monte Carlo simulation with Matlab
+% Consider the spatial cross-sectional model
+cd '\\Client\G$\My Drive\Matlab_output'
+W1= bucky
+N = 60
+X = [1:N]'
+
+%%
+
+delta = 0.5
+alpha= 0.1
+beta = 0.25
+theta = -0.1
+std = sqrt(0.01)
+
+%%
+
+sum_rows=sum(W1,2)
+W=W1./sum_rows
+
+%%
+% Create WX variables
+% for t=1:T
+%     t1=(t-1)*N+1;t2=t*N;
+%     wx(t1:t2,:)=W*x(t1:t2,:);
+% end
+wx = W*X
+iota=(ones(1,N))'
+
+%I will use the reduce form to compute Y
+      identity = eye(60)
+    part_a = inv((identity -delta*W))*alpha*iota
+    part_b = inv((identity -delta*W))*X*beta
+    error = 0+ std.* randn(N,1)
+    part_c = inv((identity -delta*W))*error
+    y = part_a + part_b +part_c
+results=sarpaul(y,[X wx iota],W)
+
+%%
+%1000 runs
+num_runs=1000;
+
+error=zeros(1,num_runs)';
+y=zeros(1,num_runs)';
+results=zeros(1,num_runs)'
+
+for i=1:num_runs
+    
+    error(1,i) = 0+ std.* randn(N,1)
+    y(1,i) = part_a + part_b +part_c
+    results(1,i)=sarpaul(y,[X wx iota],W)
+    
+    %beta(1,i)=sum(error(1,i)))/N
+end
+\end{minted}
+
+
+
+
+
+
+\end{document}

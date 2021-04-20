@@ -1,0 +1,532 @@
+date: Mar  9, 2021  
+time: 17.31.35 
+version: 1.1
+build: 39
+output: out
+srstit: X-13ARIMA-SEATS run of stayover_vistors
+srsnam: stayover_vistors                                                
+freq:    12
+span: 10th month,2005 to  9th month,2018
+nobs:   156
+constant:     0.0000000000E+00
+transform: Log(y)
+nfcst:    36
+ciprob:     0.950000
+lognormal: no
+mvval:     0.1000000000E+10
+iqtype: ljungbox
+samode: SEATS seasonal adjustment
+spectrum: yes
+startspec: 10th month,2010
+spectype: AR-spectrum
+decibel: yes
+specseries: adjoriginal
+showseasonalfreq: no
+specmaxar:    30
+altfreq: no
+saveallspecfreq: no
+nspecfreq:    61
+ntdfreq:     2
+t1.freq:   0.34820000
+t1.index:    42
+t2.freq:   0.43200000
+t2.index:    52
+nsfreq:     5
+s1.freq:   0.08333333
+s1.index:    10
+s2.freq:   0.16666667
+s2.index:    20
+s3.freq:   0.25000000
+s3.index:    30
+s4.freq:   0.33333333
+s4.index:    40
+s5.freq:   0.41666667
+s5.index:    50
+peaklocal:     0.2000000000E-02
+peakwd:     1
+siglevel:     6.000000
+mdg: yes
+modelspan: 10th month,2005 to  9th month,2018
+nobsmodelspan:    156
+outlierspan: 10th month,2005 to  9th month,2018
+nobsoutlierspan:    156
+aictest: none
+automodeltype: none
+arimamdl: (0 1 0)(0 1 1)
+maxiter:   1500
+tol:  0.100000E-04
+addoutlier:     0
+deloutlier:     0
+almost:       0.5000000
+nalmostout:     0
+aocrit:  3.907 *
+lscrit:  3.907 *
+aape.mode: withinsample
+aape.0:      10.6489
+aape.1:       6.5756
+aape.2:       6.8115
+aape.3:      18.5594
+steplength:  0.00000000000000E+00
+converged: yes
+niter:  15
+nfev:  79
+nreg:   7
+Trading Day$Mon: -0.313110928059691E-03 +0.509213276124139E-02 -0.614891525301393E-01        
+Trading Day$Tue: -0.145179405669652E-01 +0.515587105239882E-02 -0.281580753657727E+01        
+Trading Day$Wed: -0.584073323004585E-03 +0.521611380937812E-02 -0.111974804298647E+00        
+Trading Day$Thu: -0.591560244492938E-02 +0.508343591319443E-02 -0.116370158804894E+01        
+Trading Day$Fri: +0.324872744756500E-02 +0.518077975360646E-02 +0.627073066617719E+00        
+Trading Day$Sat: +0.167064073224762E-01 +0.518150518461032E-02 +0.322423827194001E+01        
+Easter[8]$Easter[8]: +0.843366481905949E-01 +0.102803083236031E-01 +0.820370805386854E+01        
+nregderived:   1
+Trading Day$Sun: +0.137559249291766E-02 +0.529389539607140E-02 +0.259845046038969E+00        
+chi$Trading Day:    6  0.643858657500950E+02  0.575760882851995E-11
+ftest$Trading Day:     6  136  0.102056850140011E+02  0.261057286898847E-08
+nonseasonaldiff:   1
+seasonaldiff:   1
+nmodel:   1
+MA$Seasonal$12$12: +0.56718351529039E+00 +0.66232190139122E-01 +0.85635627343594E+01        
+variance$mle:  0.20913331435042E-02
+variance$se:  0.24732624237937E-03
+outlier.ao:  0
+outlier.ls:  0
+outlier.tc:  0
+outlier.so:  0
+outlier.rp:  0
+outlier.tls:  0
+outlier.total:  0
+autoout:  0
+nefobs:    143
+loglikelihood:     235.9145
+aic:     793.6145
+aicc:     794.9679
+bic:     820.2801
+hq:     804.4501
+qlimit:  0.0500
+nlbq:   6
+lbq$19:  36.184      18      0.007
+lbq$20:  36.188      19      0.010
+lbq$21:  36.189      20      0.015
+lbq$22:  38.761      21      0.010
+lbq$23:  38.938      22      0.014
+lbq$24:  40.234      23      0.014
+lblags: 19 20 21 22 23 24 
+nbpq:   6
+bpq$19:  32.399      18      0.020
+bpq$20:  32.402      19      0.028
+bpq$21:  32.403      20      0.039
+bpq$22:  34.549      21      0.032
+bpq$23:  34.696      22      0.042
+bpq$24:  35.759      23      0.044
+bplags: 19 20 21 22 23 24 
+acflimit:  1.6000
+nsigacf:   2
+sigacf$04: -0.1532      0.0851   -1.8002
+sigacf$19: -0.2992      0.0944   -3.1704
+sigacflags: 4 19 
+nsigpacf:   3
+sigpacf$04: -0.1718      0.0836   -2.0539
+sigpacf$08: -0.1402      0.0836   -1.6770
+sigpacf$19: -0.2247      0.0836   -2.6873
+sigpacflags: 4 8 19 
+skewness:   -0.3898  
+a:    0.8031  
+kurtosis:    2.7771  
+durbinwatson:  0.21749884E+01
+friedman:  0.11433566E+02  11  0.40768709E+00
+spcrsd.tukey.m:    79
+spcrsd.median:    -0.2892219449E+02
+spcrsd.range:     0.1583293073E+02
+spcrsd.t1: nopeak
+spcrsd.t2:    0.1 +
+spcrsd.t.dom: t2
+spcrsd.s1: nopeak
+spcrsd.s2: nopeak
+spcrsd.s3: nopeak
+spcrsd.s4:    3.7 +
+spcrsd.s5: nopeak
+spcrsd.s.dom: s4
+spcrsd.dom: no
+nforctval:   0
+nfinalreg:   1
+finalreg01: Trading Day + Easter[8]
+prioradj: lpyear          
+samode: logarithmic seasonal adjustment
+x13mdl: (0 1 0)(0 1 1)
+seatsadj: yes
+seatsmdl: (0 1 0)(0 1 1)
+seats$nonseasonaldiff:   1
+seats$seasonaldiff:   1
+seats$nmodel:   1
+seats$MA$Seasonal$12$12:  0.56718351529039E+00  0.00000000000000E+00  0.00000000000000E+00
+normalitytest:    3.8063    
+SEATSkurtosis:    2.8236       0.3935
+SEATSskewness:   -0.3736       0.1967
+varsd:    0.4589183851E-01    
+varres:    0.2106060842E-02    
+SEATSdurbinwatson:    2.1683    
+SEATSfriedman:   10.7051    
+tsetrend:    0.9838827064E-32    
+tseseasonal:    0.1021824160E-23    
+tseseasadj:    0.1619466763E-18    
+vartrend:    0.2922     0.1092     0.1087    
+varseasadj:    1.2140     0.9405     0.9530    
+varirreg:    0.1536     0.0602     0.0606    
+varseasonal:    1.7347     0.1306     0.0999    
+concesterr:    0.2167       0.1730
+pctreductionyr1:   58.8938      42.4587
+pctreductionyr2:   76.6852      67.3635
+pctreductionyr3:   86.7763      81.4891
+pctreductionyr4:   92.4997      89.5009
+pctreductionyr5:   95.7460      94.0451
+avadaa:    0.1544       0.1194
+finmode: multiplicative
+nsigoustatvar:   0
+nsigoustat1auto:   0
+nsigoustatsauto:   0
+nsigoustatcrosscov:   0
+oustatvartcfull:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarsafull:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarsffull:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarirfull:  0.00000000000000E+00 0.50000000000000E+00
+oustatvartctrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarsatrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarsftrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarirtrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatvartcwt:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarsawt:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarsfwt:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarirwt:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autotcfull:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autosafull:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autosffull:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autoirfull:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autotctrim:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autosatrim:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autosftrim:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autoirtrim:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autotcwt:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autosawt:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autosfwt:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autoirwt:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautotcfull:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautosafull:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautosffull:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautoirfull:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautotctrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautosatrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautosftrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautoirtrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautotcwt:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautosawt:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautosfwt:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautoirwt:  0.00000000000000E+00 0.50000000000000E+00
+oustatccorsfir:  0.00000000000000E+00 0.50000000000000E+00
+oustatccorsftc:  0.00000000000000E+00 0.50000000000000E+00
+oustatccortcir:  0.00000000000000E+00 0.50000000000000E+00
+qslog: no
+qsori:       160.39950    0.00000
+qsorievadj:       227.56492    0.00000
+qsrsd:         0.33866    0.84423
+qssadj:         0.00000    1.00000
+qssadjevadj:         0.00000    1.00000
+qsirr:         0.00000    1.00000
+qsirrevadj:         0.00000    1.00000
+qssori:        98.13311    0.00000
+qssorievadj:       134.44167    0.00000
+qssrsd:         0.20480    0.90267
+qsssadj:         0.00000    1.00000
+qsssadjevadj:         0.00000    1.00000
+qssirr:         0.00000    1.00000
+qssirrevadj:         0.00000    1.00000
+diffspec: yes
+diffspecorder:    1
+diffspecstart: no
+spcori.tukey.m:    79
+spcsa.tukey.m:    79
+spcirr.tukey.m:    79
+spcsa.median:    -0.3176051341E+02
+spcsa.range:     0.1834134434E+02
+spcsa.t1: nopeak
+spcsa.t2: nopeak
+spcsa.t.dom: no
+spcsa.s1: nopeak
+spcsa.s2: nopeak
+spcsa.s3: nopeak
+spcsa.s4: nopeak
+spcsa.s5: nopeak
+spcsa.s.dom: no
+spcsa.dom: no
+spcirr.median:    -0.2381117435E+01
+spcirr.range:     0.3014981845E+02
+spcirr.t1: nopeak
+spcirr.t2: nopeak
+spcirr.t.dom: no
+spcirr.s1: nopeak
+spcirr.s2: nopeak
+spcirr.s3: nopeak
+spcirr.s4: nopeak
+spcirr.s5: nopeak
+spcirr.s.dom: no
+spcirr.dom: no
+spcori.median:    -0.2630201239E+02
+spcori.range:     0.2880194346E+02
+spcori.t1: nopeak
+spcori.t2: nopeak
+spcori.t.dom: no
+spcori.s1: nopeak
+spcori.s2:    7.1 +
+spcori.s3:   18.2 +
+spcori.s4:   10.7 +
+spcori.s5:   14.6 +
+spcori.s.dom: s3
+spcori.dom: s3
+spcrsd.tukey.s1:    0.2714
+spcrsd.tukey.s2:    0.2988
+spcrsd.tukey.s3:    0.0761
+spcrsd.tukey.s4:    0.9676
+spcrsd.tukey.s5:    0.2244
+spcrsd.tukey.s6:    0.9483
+spcrsd.tukey.td:    0.9176
+spcori.tukey.s1:    0.6231
+spcori.tukey.s2:    0.9874
+spcori.tukey.s3:    0.9978
+spcori.tukey.s4:    0.9982
+spcori.tukey.s5:    0.9997
+spcori.tukey.s6:    0.9998
+spcori.tukey.td:    0.3070
+spcsa.tukey.s1:    0.1586
+spcsa.tukey.s2:    0.0103
+spcsa.tukey.s3:    0.3028
+spcsa.tukey.s4:    0.4967
+spcsa.tukey.s5:    0.0086
+spcsa.tukey.s6:    0.2581
+spcsa.tukey.td:    0.9213
+spcirr.tukey.s1:    0.5156
+spcirr.tukey.s2:    0.5352
+spcirr.tukey.s3:    0.5215
+spcirr.tukey.s4:    0.4235
+spcirr.tukey.s5:    0.5049
+spcirr.tukey.s6:    0.5282
+spcirr.tukey.td:    0.5630
+peaks.seas: none
+peaks.td: none
+peaks.tukey.seas: ori
+peaks.tukey.td: none
+peaks.tukey.p90.seas: rsd ori
+peaks.tukey.p90.td: rsd sa
+sspans: yes
+ssa:     4  105    1 2007
+sscut:    3.00   2.00   3.00   3.00   3.00
+sstd: no
+ssdiff: no
+ssran.p01: Jan       101.35      100.95      101.17      101.36        0.41      101.20
+ssran.p02: Feb        97.20       96.49       96.24       95.65        1.62       96.37
+ssran.p03: Mar       107.55      107.09      107.10      106.83        0.67      107.13
+ssran.p04: Apr       102.76      102.73      102.68      102.62        0.14      102.70
+ssran.p05: May        89.18       89.18       89.69       90.52        1.51       89.66
+ssran.p06: Jun        91.89       92.06       93.18       93.74        2.02       92.74
+ssran.p07: Jul       108.17      108.07      109.30      109.58        1.39      108.80
+ssran.p08: Aug       108.61      108.60      108.36      107.55        0.99      108.27
+ssran.p09: Sep        87.65       87.69       88.40       88.42        0.87       88.05
+ssran.p10: Oct        92.20       92.78       92.64       92.71        0.63       92.59
+ssran.p11: Nov        97.50       98.05       97.47       97.13        0.95       97.54
+ssran.p12: Dec       114.58      115.14      114.02      114.23        0.99      114.49
+ssran.s1:       84.12      117.00       32.88
+ssran.s2:       83.89      116.42       32.53
+ssran.s3:       85.20      115.56       30.36
+ssran.s4:       86.62      115.64       29.01
+ssran.all:       83.89      117.00       33.11
+s2.pct: yes
+s2.a.per:   1  117    0.855
+s2.d.per:   1  116    0.862
+s2.e.per:   0  105    0.000
+s3.a.brk.p01: Jan   0   0.4666718297E+00
+s3.a.brk.p02: Feb   0   0.5794394901E+00
+s3.a.brk.p03: Mar   0   0.8111375627E+00
+s3.a.brk.p04: Apr   0   0.6817688753E+00
+s3.a.brk.p05: May   1   0.1531080591E+01
+s3.a.brk.p06: Jun   0   0.1248082224E+01
+s3.a.brk.p07: Jul   0   0.1014780503E+01
+s3.a.brk.p08: Aug   0   0.4596977052E+00
+s3.a.brk.p09: Sep   0   0.1091489284E+01
+s3.a.brk.p10: Oct   0   0.9589978820E+00
+s3.a.brk.p11: Nov   0   0.1008008881E+01
+s3.a.brk.p12: Dec   0   0.9994941348E+00
+s3.a.brk.y01: 2008   0   0.7313788274E+00
+s3.a.brk.y02: 2009   0   0.9203104245E+00
+s3.a.brk.y03: 2010   0   0.9970359461E+00
+s3.a.brk.y04: 2011   0   0.5881432458E+00
+s3.a.brk.y05: 2012   0   0.4361009938E+00
+s3.a.brk.y06: 2013   0   0.5477216508E+00
+s3.a.brk.y07: 2014   0   0.9188340198E+00
+s3.a.brk.y08: 2015   0   0.1539606479E+01
+s3.a.brk.y09: 2016   1   0.1361316575E+01
+s3.a.brk.y10: 2017   0   0.1006067865E+01
+s3.a.hinge:     0.032     0.442     0.743     1.265     1.499     3.477     1.101
+s3.a.thist1:   3.0   4.0    1
+s3.a.thist2:   4.0   5.0    0
+s3.a.thist3:   5.0   6.0    0
+s3.a.thist4:   6.0          0
+s3.d.brk.p01: Jan   0   0.1201292794E+01
+s3.d.brk.p02: Feb   0   0.3699228029E+00
+s3.d.brk.p03: Mar   0   0.1019684475E+01
+s3.d.brk.p04: Apr   0   0.8443439440E+00
+s3.d.brk.p05: May   0   0.1600201443E+01
+s3.d.brk.p06: Jun   0   0.9050631646E+00
+s3.d.brk.p07: Jul   0   0.4043005080E+00
+s3.d.brk.p08: Aug   1   0.1412726253E+01
+s3.d.brk.p09: Sep   0   0.9012259241E+00
+s3.d.brk.p10: Oct   0   0.1160195969E+01
+s3.d.brk.p11: Nov   0   0.7668390241E+00
+s3.d.brk.p12: Dec   0   0.1045402236E+01
+s3.d.brk.y01: 2008   0   0.9108497405E+00
+s3.d.brk.y02: 2009   0   0.1075610144E+01
+s3.d.brk.y03: 2010   0   0.1522745204E+01
+s3.d.brk.y04: 2011   0   0.8955481869E+00
+s3.d.brk.y05: 2012   0   0.5652446096E+00
+s3.d.brk.y06: 2013   0   0.5035488239E+00
+s3.d.brk.y07: 2014   0   0.7744406037E+00
+s3.d.brk.y08: 2015   0   0.1312316715E+01
+s3.d.brk.y09: 2016   1   0.1196640321E+01
+s3.d.brk.y10: 2017   0   0.8850858780E+00
+s3.d.hinge:     0.002     0.471     0.758     1.021     1.288     3.579     1.123
+s3.d.thist1:   3.0   5.0    1
+s3.d.thist2:   5.0   7.0    0
+s3.d.thist3:   7.0  10.0    0
+s3.d.thist4:  10.0          0
+s3.e.brk.p01: Jan   0   0.2145520176E+00
+s3.e.brk.p02: Feb   0   0.3082638389E+00
+s3.e.brk.p03: Mar   0   0.3848909947E+00
+s3.e.brk.p04: Apr   0   0.4134946846E+00
+s3.e.brk.p05: May   0   0.6152555388E+00
+s3.e.brk.p06: Jun   0   0.5226308628E+00
+s3.e.brk.p07: Jul   0   0.4132682297E+00
+s3.e.brk.p08: Aug   0   0.2459806529E+00
+s3.e.brk.p09: Sep   0   0.6351747844E+00
+s3.e.brk.p10: Oct   0   0.6289020826E+00
+s3.e.brk.p11: Nov   0   0.4607819451E+00
+s3.e.brk.p12: Dec   0   0.4618822877E+00
+s3.e.brk.y01: 2008   0   0.0000000000E+00
+s3.e.brk.y02: 2009   0   0.3119402334E+00
+s3.e.brk.y03: 2010   0   0.4212737403E+00
+s3.e.brk.y04: 2011   0   0.4533472590E+00
+s3.e.brk.y05: 2012   0   0.2842443894E+00
+s3.e.brk.y06: 2013   0   0.3037222064E+00
+s3.e.brk.y07: 2014   0   0.4596059050E+00
+s3.e.brk.y08: 2015   0   0.7583203334E+00
+s3.e.brk.y09: 2016   0   0.5424120551E+00
+s3.e.brk.y10: 2017   0   0.4195268334E+00
+s3.e.hinge:     0.002     0.227     0.387     0.602     0.770     1.514     0.574
+s3.e.thist1:   3.0   4.0    0
+s3.e.thist2:   4.0   5.0    0
+s3.e.thist3:   5.0   6.0    0
+s3.e.thist4:   6.0          0
+history: yes
+historysa: yes
+nfctlag:   2
+nsalag:   0
+ntrnlag:   0
+revspan: 10th month,2013 to  8th month,2018
+historytarget: final
+r01.aarmode: percent
+r01.lag00.aar.all:  0.1781277550E+01
+r01.lag00.aar.p01: Jan  0.9087882204E+00
+r01.lag00.aar.p02: Feb  0.8850639248E+00
+r01.lag00.aar.p03: Mar  0.1594857301E+01
+r01.lag00.aar.p04: Apr  0.1572489180E+01
+r01.lag00.aar.p05: May  0.2908149520E+01
+r01.lag00.aar.p06: Jun  0.2720489722E+01
+r01.lag00.aar.p07: Jul  0.1970561521E+01
+r01.lag00.aar.p08: Aug  0.1325967608E+01
+r01.lag00.aar.p09: Sep  0.1973998450E+01
+r01.lag00.aar.p10: Oct  0.2372166913E+01
+r01.lag00.aar.p11: Nov  0.1864054488E+01
+r01.lag00.aar.p12: Dec  0.1317287933E+01
+r01.lag00.aar.y01: 2013  0.2043565981E+01
+r01.lag00.aar.y02: 2014  0.1215409177E+01
+r01.lag00.aar.y03: 2015  0.1502488529E+01
+r01.lag00.aar.y04: 2016  0.3448056021E+01
+r01.lag00.aar.y05: 2017  0.1412451347E+01
+r01.lag00.aar.y06: 2018  0.1002977078E+01
+r01.lag00.hinge.min:  0.4255608500E-02
+r01.lag00.hinge.25p:  0.6241290094E+00
+r01.lag00.hinge.med:  0.1716439691E+01
+r01.lag00.hinge.75p:  0.2328711885E+01
+r01.lag00.hinge.max:  0.6759016697E+01
+r02.lag00.aar.all:  0.1112437493E+01
+r02.lag00.aar.p01: Jan  0.1559271752E+01
+r02.lag00.aar.p02: Feb  0.9047047561E+00
+r02.lag00.aar.p03: Mar  0.7733122632E+00
+r02.lag00.aar.p04: Apr  0.7097173069E+00
+r02.lag00.aar.p05: May  0.2398250969E+01
+r02.lag00.aar.p06: Jun  0.5349761936E+00
+r02.lag00.aar.p07: Jul  0.6604786156E+00
+r02.lag00.aar.p08: Aug  0.1501750161E+01
+r02.lag00.aar.p09: Sep  0.1241180512E+01
+r02.lag00.aar.p10: Oct  0.9988926024E+00
+r02.lag00.aar.p11: Nov  0.1278566823E+01
+r02.lag00.aar.p12: Dec  0.8138965702E+00
+r02.lag00.aar.y01: 2013  0.1515924469E+01
+r02.lag00.aar.y02: 2014  0.1075834069E+01
+r02.lag00.aar.y03: 2015  0.1533687556E+01
+r02.lag00.aar.y04: 2016  0.1606419761E+01
+r02.lag00.aar.y05: 2017  0.7080492239E+00
+r02.lag00.aar.y06: 2018  0.2497689239E+00
+r02.lag00.hinge.min:  0.6149165246E-02
+r02.lag00.hinge.25p:  0.2620614925E+00
+r02.lag00.hinge.med:  0.7370972739E+00
+r02.lag00.hinge.75p:  0.1537878461E+01
+r02.lag00.hinge.max:  0.4881490225E+01
+r04.aarmode: percent
+r04.lag00.aar.all:  0.1999356950E+01
+r04.lag00.aar.p01: Jan  0.7831497752E+00
+r04.lag00.aar.p02: Feb  0.9167744421E+00
+r04.lag00.aar.p03: Mar  0.1959507492E+01
+r04.lag00.aar.p04: Apr  0.2648364819E+01
+r04.lag00.aar.p05: May  0.2597333425E+01
+r04.lag00.aar.p06: Jun  0.2900509063E+01
+r04.lag00.aar.p07: Jul  0.2370473515E+01
+r04.lag00.aar.p08: Aug  0.1976655208E+01
+r04.lag00.aar.p09: Sep  0.1779642535E+01
+r04.lag00.aar.p10: Oct  0.2023398818E+01
+r04.lag00.aar.p11: Nov  0.1967630979E+01
+r04.lag00.aar.p12: Dec  0.2024900445E+01
+r04.lag00.aar.y01: 2013  0.2465929879E+01
+r04.lag00.aar.y02: 2014  0.1520966579E+01
+r04.lag00.aar.y03: 2015  0.1514175259E+01
+r04.lag00.aar.y04: 2016  0.3723378259E+01
+r04.lag00.aar.y05: 2017  0.1500924787E+01
+r04.lag00.aar.y06: 2018  0.1431366476E+01
+r04.lag00.hinge.min:  0.1322123028E-01
+r04.lag00.hinge.25p:  0.9116456462E+00
+r04.lag00.hinge.med:  0.1842813242E+01
+r04.lag00.hinge.75p:  0.2700769017E+01
+r04.lag00.hinge.max:  0.7659261830E+01
+r05.lag00.aar.all:  0.1017875814E+01
+r05.lag00.aar.p01: Jan  0.1168891162E+01
+r05.lag00.aar.p02: Feb  0.6227439895E+00
+r05.lag00.aar.p03: Mar  0.5372853054E+00
+r05.lag00.aar.p04: Apr  0.1340780239E+01
+r05.lag00.aar.p05: May  0.1535157985E+01
+r05.lag00.aar.p06: Jun  0.1046908731E+01
+r05.lag00.aar.p07: Jul  0.9115361388E+00
+r05.lag00.aar.p08: Aug  0.1128540351E+01
+r05.lag00.aar.p09: Sep  0.1318279125E+01
+r05.lag00.aar.p10: Oct  0.3593750082E+00
+r05.lag00.aar.p11: Nov  0.9240037426E+00
+r05.lag00.aar.p12: Dec  0.1381088649E+01
+r05.lag00.aar.y01: 2013  0.7367781237E+00
+r05.lag00.aar.y02: 2014  0.9060849194E+00
+r05.lag00.aar.y03: 2015  0.1494677056E+01
+r05.lag00.aar.y04: 2016  0.1345699446E+01
+r05.lag00.aar.y05: 2017  0.5473482563E+00
+r05.lag00.aar.y06: 2018  0.7898278125E+00
+r05.lag00.hinge.min:  0.6118132302E-03
+r05.lag00.hinge.25p:  0.3704442893E+00
+r05.lag00.hinge.med:  0.8268307230E+00
+r05.lag00.hinge.75p:  0.1350033627E+01
+r05.lag00.hinge.max:  0.3525525740E+01
+transformfcst: no
+rvfcstlag:   1 12
+meanssfe:   0.2053822358E+02   0.2455667653E+03

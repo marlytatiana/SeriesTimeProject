@@ -1,0 +1,21 @@
+$regression:
+$regression$estimates:
+group	variable	estimate	standard error	fixed
+-----	--------	-----------	--------------	-----
+Constant	Constant	+0.511090063520993E-01	+0.239606022632250E-01	       
+1-Coefficient Trading Day	Weekday	+0.129051711337144E-01	+0.549559795816716E-02	       
+Leap Year	Leap Year	+0.469949893396173E-01	+0.109957816893912E+00	       
+Missing Value	MV2005.Oct	+0.999999996455679E+09	+0.330976421280113E+00	       
+Missing Value	MV2005.Nov	+0.999999995818258E+09	+0.309688610307533E+00	       
+Missing Value	MV2005.Dec	+0.999999995675970E+09	+0.258100343324631E+00	       
+$arima:
+$arima$estimates:
+operator	factor	period	lag	estimate	standard error	fixed
+--------	------	------	---	--------	--------------	-----
+AR	Nonseasonal	01	01	+0.65090130137158E+00	+0.60536891567995E-01	       
+AR	Seasonal	12	12	+0.48823177740140E+00	+0.82328462582915E-01	       
+MA	Seasonal	12	12	+0.99955800412094E+00	+0.52999720303878E-01	       
+$variance:
+
+mle	+0.60872808646631E-01
+se	+0.71739292973173E-02

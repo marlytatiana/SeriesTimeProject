@@ -1,0 +1,427 @@
+date: Mar 18, 2021  
+time: 09.55.57 
+version: 1.1
+build: 39
+output: out
+srstit: X-13ARIMA-SEATS run of ln_cruisevisitor
+srsnam: ln_cruisevisitor                                                
+freq:    12
+span: 10th month,2005 to  9th month,2018
+nobs:   156
+constant:     0.0000000000E+00
+transform: No transformation
+nfcst:    36
+ciprob:     0.950000
+lognormal: no
+mvval:     0.1000000000E+10
+iqtype: ljungbox
+samode: SEATS seasonal adjustment
+spectrum: yes
+startspec: 10th month,2010
+spectype: AR-spectrum
+decibel: yes
+specseries: adjoriginal
+showseasonalfreq: no
+specmaxar:    30
+altfreq: no
+saveallspecfreq: no
+nspecfreq:    61
+ntdfreq:     2
+t1.freq:   0.34820000
+t1.index:    42
+t2.freq:   0.43200000
+t2.index:    52
+nsfreq:     5
+s1.freq:   0.08333333
+s1.index:    10
+s2.freq:   0.16666667
+s2.index:    20
+s3.freq:   0.25000000
+s3.index:    30
+s4.freq:   0.33333333
+s4.index:    40
+s5.freq:   0.41666667
+s5.index:    50
+peaklocal:     0.2000000000E-02
+peakwd:     1
+siglevel:     6.000000
+mdg: yes
+modelspan: 10th month,2005 to  9th month,2018
+nobsmodelspan:    156
+outlierspan: 10th month,2005 to  9th month,2018
+nobsoutlierspan:    156
+aictest: none
+automodeltype: none
+arimamdl: (1 0 0)(1 1 1)
+maxiter:   1500
+tol:  0.100000E-04
+otlitr.1.+: AO2012.May +0.218695566639218E+00 +0.246723767330993E+00 -0.485551987949325E+01
+otlitr.1.-: AO2012.May +0.000000000000000E+00 +0.236319178271018E+00 -0.316806937982900E+00
+addoutlier:     1
+deloutlier:     1
+almost:       0.5000000
+nalmostout:     2
+almostoutlier$AO2012.Apr:  0.386231701927601E+01  0.102201836888284E+01  0.000000000000000E+00                         
+almostoutlier$AO2012.May: -0.316806937982900E+00 -0.278471902523713E+01  0.000000000000000E+00                         
+aocrit:  3.907 *
+lscrit:  3.907 *
+aape.mode: withinsample
+aape.0:       6.1638
+aape.1:       5.5205
+aape.2:       9.0510
+aape.3:       3.9199
+steplength:  0.00000000000000E+00
+converged: yes
+niter:  31
+nfev: 168
+nreg:   6
+Constant$Constant: +0.511090063520993E-01 +0.239606022632250E-01 +0.213304347656327E+01        
+1-Coefficient Trading Day$Weekday: +0.129051711337144E-01 +0.549559795816716E-02 +0.234827424275745E+01        
+Leap Year$Leap Year: +0.469949893396173E-01 +0.109957816893912E+00 +0.427391072932615E+00        
+Missing Value$MV2005.Oct: +0.999999996455679E+09 +0.330976421280113E+00 +0.302136325176275E+10        
+Missing Value$MV2005.Nov: +0.999999995818258E+09 +0.309688610307533E+00 +0.322904996352697E+10        
+Missing Value$MV2005.Dec: +0.999999995675970E+09 +0.258100343324631E+00 +0.387446209018869E+10        
+nregderived:   1
+1-Coefficient Trading Day$Sat/Sun: -0.322629278342859E-01 +0.137389948954179E-01 -0.234827424275745E+01        
+chi$Missing Value:    3  0.183493079566850E+20  0.000000000000000E+00
+chi$Combined Trading Day and Leap Year Regressors:    2  0.589221211209690E+01  0.525439111536212E-01
+ftest$1-Coefficient Trading Day:     1  138  0.528462558923149E+01  0.230165660852630E-01
+nonseasonaldiff:   0
+seasonaldiff:   1
+nmodel:   3
+AR$Nonseasonal$01$01: +0.65090130137158E+00 +0.60536891567995E-01 +0.10752142776285E+02        
+AR$Seasonal$12$12: +0.48823177740140E+00 +0.82328462582915E-01 +0.59302914458009E+01        
+MA$Seasonal$12$12: +0.99955800412094E+00 +0.52999720303878E-01 +0.18859684511350E+02        
+variance$mle:  0.60872808646631E-01
+variance$se:  0.71739292973173E-02
+outlier.ao:  0
+outlier.ls:  0
+outlier.tc:  0
+outlier.so:  0
+outlier.rp:  0
+outlier.tls:  0
+outlier.total:  0
+autoout:  0
+nefobs:    144
+loglikelihood:     -12.8482
+aic:      45.6963
+aicc:      47.3505
+bic:      75.3945
+hq:      57.7640
+qlimit:  0.0500
+nlbq:   2
+lbq$14:  20.709      11      0.037
+lbq$15:  21.459      12      0.044
+lblags: 14 15 
+nbpq:   0
+bplags: 0
+acflimit:  1.6000
+nsigacf:   4
+sigacf$07: -0.1900      0.0846   -2.2459
+sigacf$13:  0.1845      0.0889    2.0758
+sigacf$14:  0.1702      0.0915    1.8608
+sigacf$24: -0.1927      0.0952   -2.0238
+sigacflags: 7 13 14 24 
+nsigpacf:   4
+sigpacf$07: -0.1950      0.0833   -2.3402
+sigpacf$13:  0.1429      0.0833    1.7150
+sigpacf$14:  0.1707      0.0833    2.0490
+sigpacf$24: -0.2316      0.0833   -2.7788
+sigpacflags: 7 13 14 24 
+skewness:   -0.3451  
+a:    0.7364 *
+kurtosis:    5.2168 *
+durbinwatson:  0.19996232E+01
+friedman:  0.92307692E+00  11  0.99996649E+00
+spcrsd.tukey.m:    79
+spcrsd.median:    -0.1384071256E+02
+spcrsd.range:     0.1218729325E+02
+spcrsd.t1: nopeak
+spcrsd.t2: nopeak
+spcrsd.t.dom: no
+spcrsd.s1: nopeak
+spcrsd.s2: nopeak
+spcrsd.s3: nopeak
+spcrsd.s4:    0.8 +
+spcrsd.s5: nopeak
+spcrsd.s.dom: s4
+spcrsd.dom: no
+nforctval:   0
+nfinalreg:   1
+finalreg01: Constant + 1-Coefficient Trading Day + Leap Year
+prioradj: none
+samode: additive seasonal adjustment
+x13mdl: (1 0 0)(1 1 1)
+seatsadj: yes
+seatsmdl: (1 0 0)(1 1 1)
+seats$nonseasonaldiff:   0
+seats$seasonaldiff:   1
+seats$nmodel:   3
+seats$AR$Nonseasonal$01$01:  0.65090130137158E+00  0.00000000000000E+00  0.00000000000000E+00
+seats$AR$Seasonal$12$12:  0.48823177740140E+00  0.00000000000000E+00  0.00000000000000E+00
+seats$MA$Seasonal$12$12:  0.99000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+normalitytest:   29.0609    
+SEATSkurtosis:    5.1291       0.4097
+SEATSskewness:   -0.2934       0.2048
+varsd:    0.2594266528E+00    
+varres:    0.6730218818E-01    
+SEATSdurbinwatson:    1.9738    
+SEATSfriedman:    1.6713    
+tsetrend:    0.2080615021E-30    
+tseseasonal:    0.8414398935E-11    
+tseseasadj:    0.5890933612E-10    
+vartrend:    0.0453     0.0083     0.0055    
+varseasadj:    0.3779     0.1665     0.1538    
+varirreg:    0.1663     0.0492     0.0451    
+varseasonal:   10.5712     3.5215     3.0873    
+concesterr:    0.1146       0.0988
+pctreductionyr1:   97.5607      79.2307
+pctreductionyr2:   98.8170      85.5066
+pctreductionyr3:   98.8288      85.5119
+pctreductionyr4:   98.8406      85.5171
+pctreductionyr5:   98.8522      85.5222
+avadaa: -999.0000    -999.0000
+finmode: additive
+nsigoustatvar:   0
+nsigoustat1auto:   0
+nsigoustatsauto:   0
+nsigoustatcrosscov:   0
+oustatvartcfull:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarsafull:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarsffull:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarirfull:  0.00000000000000E+00 0.50000000000000E+00
+oustatvartctrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarsatrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarsftrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarirtrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatvartcwt:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarsawt:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarsfwt:  0.00000000000000E+00 0.50000000000000E+00
+oustatvarirwt:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autotcfull:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autosafull:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autosffull:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autoirfull:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autotctrim:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autosatrim:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autosftrim:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autoirtrim:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autotcwt:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autosawt:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autosfwt:  0.00000000000000E+00 0.50000000000000E+00
+oustat1autoirwt:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautotcfull:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautosafull:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautosffull:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautoirfull:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautotctrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautosatrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautosftrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautoirtrim:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautotcwt:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautosawt:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautosfwt:  0.00000000000000E+00 0.50000000000000E+00
+oustatsautoirwt:  0.00000000000000E+00 0.50000000000000E+00
+oustatccorsfir:  0.00000000000000E+00 0.50000000000000E+00
+oustatccorsftc:  0.00000000000000E+00 0.50000000000000E+00
+oustatccortcir:  0.00000000000000E+00 0.50000000000000E+00
+qslog: no
+qsori:       191.66622    0.00000
+qsorievadj:       197.39248    0.00000
+qsrsd:         0.00000    1.00000
+qssadj:         0.00000    1.00000
+qssadjevadj:         0.00000    1.00000
+qsirr:         0.00000    1.00000
+qsirrevadj:         0.00000    1.00000
+qssori:        68.55028    0.00000
+qssorievadj:        69.74448    0.00000
+qssrsd:         0.00000    1.00000
+qsssadj:         0.00000    1.00000
+qsssadjevadj:         0.00000    1.00000
+qssirr:         0.00000    1.00000
+qssirrevadj:         0.00000    1.00000
+diffspec: yes
+diffspecorder:    1
+diffspecstart: no
+spcori.tukey.m:    79
+spcsa.tukey.m:    79
+spcirr.tukey.m:    79
+spcsa.median:    -0.2415956869E+02
+spcsa.range:     0.2150466638E+02
+spcsa.t1: nopeak
+spcsa.t2: nopeak
+spcsa.t.dom: no
+spcsa.s1: nopeak
+spcsa.s2: nopeak
+spcsa.s3: nopeak
+spcsa.s4: nopeak
+spcsa.s5: nopeak
+spcsa.s.dom: no
+spcsa.dom: no
+spcirr.median:    -0.2914416396E+02
+spcirr.range:     0.2504049696E+02
+spcirr.t1: nopeak
+spcirr.t2: nopeak
+spcirr.t.dom: no
+spcirr.s1: nopeak
+spcirr.s2:    0.3  
+spcirr.s3: nopeak
+spcirr.s4: nopeak
+spcirr.s5: nopeak
+spcirr.s.dom: no
+spcirr.dom: no
+spcori.median:    -0.1049497104E+02
+spcori.range:     0.3171330838E+02
+spcori.t1: nopeak
+spcori.t2:    0.4 +
+spcori.t.dom: t2
+spcori.s1:   10.2 +
+spcori.s2: nopeak
+spcori.s3:   10.0 +
+spcori.s4:    4.6 +
+spcori.s5: nopeak
+spcori.s.dom: s1
+spcori.dom: s1
+spcrsd.tukey.s1:    0.7884
+spcrsd.tukey.s2:    0.1181
+spcrsd.tukey.s3:    0.1154
+spcrsd.tukey.s4:    0.6075
+spcrsd.tukey.s5:    0.0798
+spcrsd.tukey.s6:    0.5734
+spcrsd.tukey.td:    0.5854
+spcori.tukey.s1:    0.9451
+spcori.tukey.s2:    0.4690
+spcori.tukey.s3:    0.9858
+spcori.tukey.s4:    0.9464
+spcori.tukey.s5:    0.7863
+spcori.tukey.s6:    0.4189
+spcori.tukey.td:    0.5732
+spcsa.tukey.s1:    0.2199
+spcsa.tukey.s2:    0.1279
+spcsa.tukey.s3:    0.0238
+spcsa.tukey.s4:    0.2535
+spcsa.tukey.s5:    0.0256
+spcsa.tukey.s6:    0.0702
+spcsa.tukey.td:    0.8319
+spcirr.tukey.s1:    0.4495
+spcirr.tukey.s2:    0.1087
+spcirr.tukey.s3:    0.0330
+spcirr.tukey.s4:    0.3897
+spcirr.tukey.s5:    0.0283
+spcirr.tukey.s6:    0.0856
+spcirr.tukey.td:    0.8093
+peaks.seas: none
+peaks.td: none
+peaks.tukey.seas: none
+peaks.tukey.td: none
+peaks.tukey.p90.seas: ori
+peaks.tukey.p90.td: none
+sspans: failed
+history: yes
+historysa: yes
+nfctlag:   2
+nsalag:   0
+ntrnlag:   0
+revspan: 10th month,2013 to  8th month,2018
+historytarget: final
+r01.aarmode: percent
+r01.lag00.aar.all:  0.2095552080E+01
+r01.lag00.aar.p01: Jan  0.2652433981E+01
+r01.lag00.aar.p02: Feb  0.2864646898E+01
+r01.lag00.aar.p03: Mar  0.3561607758E+01
+r01.lag00.aar.p04: Apr  0.4133020430E+01
+r01.lag00.aar.p05: May  0.2239455168E+01
+r01.lag00.aar.p06: Jun  0.1177198547E+01
+r01.lag00.aar.p07: Jul  0.1161014734E+01
+r01.lag00.aar.p08: Aug  0.1084732357E+01
+r01.lag00.aar.p09: Sep  0.1588478165E+01
+r01.lag00.aar.p10: Oct  0.1241452509E+01
+r01.lag00.aar.p11: Nov  0.1494023451E+01
+r01.lag00.aar.p12: Dec  0.1847146177E+01
+r01.lag00.aar.y01: 2013  0.1992121174E+01
+r01.lag00.aar.y02: 2014  0.2548797591E+01
+r01.lag00.aar.y03: 2015  0.1135889638E+01
+r01.lag00.aar.y04: 2016  0.1754852465E+01
+r01.lag00.aar.y05: 2017  0.2503849892E+01
+r01.lag00.aar.y06: 2018  0.2792566768E+01
+r01.lag00.hinge.min:  0.1450667293E-01
+r01.lag00.hinge.25p:  0.8010628929E+00
+r01.lag00.hinge.med:  0.1814334362E+01
+r01.lag00.hinge.75p:  0.2846025976E+01
+r01.lag00.hinge.max:  0.6416636150E+01
+r02.lag00.aar.all:  0.1104557558E+01
+r02.lag00.aar.p01: Jan  0.8877285297E+00
+r02.lag00.aar.p02: Feb  0.1019936941E+01
+r02.lag00.aar.p03: Mar  0.1183545244E+01
+r02.lag00.aar.p04: Apr  0.8189914479E+00
+r02.lag00.aar.p05: May  0.1395499549E+01
+r02.lag00.aar.p06: Jun  0.1277030037E+01
+r02.lag00.aar.p07: Jul  0.1071282521E+01
+r02.lag00.aar.p08: Aug  0.1347873483E+01
+r02.lag00.aar.p09: Sep  0.1494484909E+01
+r02.lag00.aar.p10: Oct  0.1356901523E+01
+r02.lag00.aar.p11: Nov  0.5529983975E+00
+r02.lag00.aar.p12: Dec  0.9264035774E+00
+r02.lag00.aar.y01: 2013  0.1408390298E+01
+r02.lag00.aar.y02: 2014  0.1029507467E+01
+r02.lag00.aar.y03: 2015  0.1055857315E+01
+r02.lag00.aar.y04: 2016  0.1621482238E+01
+r02.lag00.aar.y05: 2017  0.9977560438E+00
+r02.lag00.aar.y06: 2018  0.5610610306E+00
+r02.lag00.hinge.min:  0.2039895566E-01
+r02.lag00.hinge.25p:  0.4908584076E+00
+r02.lag00.hinge.med:  0.9541351098E+00
+r02.lag00.hinge.75p:  0.1521669348E+01
+r02.lag00.hinge.max:  0.3931924248E+01
+r04.aarmode: percent
+r04.lag00.aar.all:  0.2226531311E+01
+r04.lag00.aar.p01: Jan  0.2548124530E+01
+r04.lag00.aar.p02: Feb  0.2930138263E+01
+r04.lag00.aar.p03: Mar  0.3444212428E+01
+r04.lag00.aar.p04: Apr  0.4517977807E+01
+r04.lag00.aar.p05: May  0.2654401206E+01
+r04.lag00.aar.p06: Jun  0.2057771681E+01
+r04.lag00.aar.p07: Jul  0.1164827299E+01
+r04.lag00.aar.p08: Aug  0.1574018054E+01
+r04.lag00.aar.p09: Sep  0.9082754508E+00
+r04.lag00.aar.p10: Oct  0.1261299937E+01
+r04.lag00.aar.p11: Nov  0.1574902044E+01
+r04.lag00.aar.p12: Dec  0.1818775863E+01
+r04.lag00.aar.y01: 2013  0.1666734673E+01
+r04.lag00.aar.y02: 2014  0.2854636123E+01
+r04.lag00.aar.y03: 2015  0.1223842793E+01
+r04.lag00.aar.y04: 2016  0.1483110468E+01
+r04.lag00.aar.y05: 2017  0.2855022341E+01
+r04.lag00.aar.y06: 2018  0.3170725330E+01
+r04.lag00.hinge.min:  0.9525126456E-01
+r04.lag00.hinge.25p:  0.5894412089E+00
+r04.lag00.hinge.med:  0.1963082292E+01
+r04.lag00.hinge.75p:  0.2872458367E+01
+r04.lag00.hinge.max:  0.6915839577E+01
+r05.lag00.aar.all:  0.4177214982E+00
+r05.lag00.aar.p01: Jan  0.5012935727E+00
+r05.lag00.aar.p02: Feb  0.4565812819E+00
+r05.lag00.aar.p03: Mar  0.4936134882E+00
+r05.lag00.aar.p04: Apr  0.6367555697E+00
+r05.lag00.aar.p05: May  0.3264292037E+00
+r05.lag00.aar.p06: Jun  0.2422575482E+00
+r05.lag00.aar.p07: Jul  0.2423713091E+00
+r05.lag00.aar.p08: Aug  0.3358230843E+00
+r05.lag00.aar.p09: Sep  0.3214414963E+00
+r05.lag00.aar.p10: Oct  0.4710573048E+00
+r05.lag00.aar.p11: Nov  0.5026053709E+00
+r05.lag00.aar.p12: Dec  0.4631727477E+00
+r05.lag00.aar.y01: 2013  0.7516041400E+00
+r05.lag00.aar.y02: 2014  0.3186640907E+00
+r05.lag00.aar.y03: 2015  0.2645300535E+00
+r05.lag00.aar.y04: 2016  0.3968531582E+00
+r05.lag00.aar.y05: 2017  0.5162010500E+00
+r05.lag00.aar.y06: 2018  0.5544719677E+00
+r05.lag00.hinge.min:  0.1642347472E-01
+r05.lag00.hinge.25p:  0.1931273519E+00
+r05.lag00.hinge.med:  0.3382876641E+00
+r05.lag00.hinge.75p:  0.6339284039E+00
+r05.lag00.hinge.max:  0.1103852969E+01
+transformfcst: no
+rvfcstlag:   1 12
+meanssfe:   0.6693871741E-01   0.1054317762E+00

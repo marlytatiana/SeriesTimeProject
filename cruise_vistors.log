@@ -1,0 +1,47 @@
+1
+    Log for X-13ARIMA-SEATS program (Version 1.1 Build 39)  Mar  9, 2021  17.41.20 
+    *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+
+
+ Type of  Series      Additional                   Series title
+ Adjust.  Ident.      Identifiers
+
+
+  NOTE: The X-13ARIMA-SEATS diagnostic file (.udg) has been stored
+        in the directory specified by the graphics (-g) option.
+
+  M-NONE   cruise -------- -------- X-13ARIMA-SEATS run of cruise_vistors             
+ Average Absolute Percentage Error : within-sample forecasts
+    AAPE(Last year)   :            16.49
+    AAPE(Last-1 year) :            15.05
+    AAPE(Last-2 year) :            15.61
+    AAPE(Last 3 years):            15.72
+   AIC  :    1067.4143
+   AICC :    1068.7575
+   BIC  :    1094.1426
+   Hannan-Quinn  :    1078.2751
+     Summary of Significant Ljung-Box Q:
+     Lag        Q         DF       P
+     ---     -------     ---     -----
+      11      17.395       9      0.043
+      13      23.595      11      0.015
+      14      23.693      12      0.022
+      15      23.706      13      0.034
+      16      23.734      14      0.049
+      22      32.921      20      0.034
+      23      36.324      21      0.020
+      24      36.546      22      0.027
+
+    Skewness coefficient:    0.0075  
+    Geary's a statistic:    0.7914  
+    Kurtosis:    2.9673  
+
+ Sliding spans analysis failed : check error file.
+ AveAbsRev of Seasonal Adj. :               3.547
+ AveAbsRev of Changes in Adj. :             3.898
+ AveAbsRev of Trend :                       7.863
+ AveAbsRev of Changes in Trend :            1.310
+
+  NOTE: The diagnostic files produced by the -s option are stored in the
+        directory specified by the graphics (-g) option.

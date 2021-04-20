@@ -1,0 +1,143 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}D:\1_master\app_macro\assignment_1.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}30 Mar 2021, 00:17:53
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. help vecrank
+
+. 
+. use ${c -(}path{c )-}all_series.dta
+
+. sum
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 8}Year {c |}{res}        156     2011.75    3.778761       2005       2018
+{txt}{space 7}Month {c |}{res}        156         6.5     3.46317          1         12
+{txt}Stayove~1000 {c |}{res}        156    77.75139    15.13543      48.47    118.466
+{txt}Visitor~1000 {c |}{res}        156      578.75    104.4585    369.737    855.736
+{txt}Cruisev~1000 {c |}{res}        153    52.08533    32.60545      4.652    118.542
+{txt}{hline 13}{c +}{hline 57}
+{space 3}Shipcalls {c |}{res}        153    26.54248    16.89129          2         64
+{txt}{space 8}Time {c |}{res}          0
+{txt}cruise_vis~s {c |}{res}        153    52.08533    32.60545      4.652    118.542
+{txt}stayover_v~s {c |}{res}        156    77.75139    15.13543      48.47    118.466
+{txt}ln_cruisev~s {c |}{res}        153    3.662717     .863152   1.537297   4.775267
+{txt}{hline 13}{c +}{hline 57}
+ln_stayove~s {c |}{res}        156    4.334875     .193738   3.880945   4.774626
+{txt}{space 8}date {c |}{res}        156       626.5    45.17743        549        704
+{txt}sa_ln_crui~s {c |}{res}        153    3.666565    .3557855   2.724083   4.560049
+{txt}sa_ln_stay~s {c |}{res}        156    4.334403    .1766605   3.960341   4.701262
+{txt}seas_ln_cr~s {c |}{res}        153    -.003848    .8131322  -1.535901   1.168252
+{txt}{hline 13}{c +}{hline 57}
+seas_ln_st~s {c |}{res}        156    .0004718     .087234  -.1930723   .1636085
+{txt}sa2_ln_cru~s {c |}{res}        149    3.648499     .340953   2.724083   4.518229
+{txt}sa2_ln_sta~s {c |}{res}        152    4.329979    .1767682   3.960341   4.701262
+{txt}seas2_ln_c~s {c |}{res}        149    .0131524    .8171246  -1.535901   1.168252
+{txt}seas2_ln_s~s {c |}{res}        152     .000635    .0870038  -.1930723   .1636085
+{txt}{hline 13}{c +}{hline 57}
+stay1_comA~t {c |}{res}        156    .0001451    .0853078  -.1850497   .1602638
+{txt}stay1_irrC~p {c |}{res}        156   -1.59e-14     .011312  -.0273293    .033062
+{txt}stay1_seas~j {c |}{res}        156     4.33473    .1725077   3.975951   4.730581
+{txt}stay1_seas~p {c |}{res}        156    .0000734    .0823149  -.1702669   .1488495
+{txt}stay1_tren~p {c |}{res}        156     4.33473    .1715129   4.003281   4.716032
+{txt}{hline 13}{c +}{hline 57}
+{space 7}month {c |}{res}        156         6.5     3.46317          1         12
+{txt}{space 10}yr {c |}{res}        156     2011.75    3.778761       2005       2018
+{txt}cruise1_co~t {c |}{res}        156    .0015658    .8123675  -1.711105   1.230232
+{txt}cruise1_ir~p {c |}{res}        156    .0003777    .0552882  -.2317471   .1839494
+{txt}cruise1_se~j {c |}{res}        156    3.667958    .2593146   3.130082    4.33412
+{txt}{hline 13}{c +}{hline 57}
+cruise1_se~p {c |}{res}        156    .0020547    .8114415  -1.704652   1.236685
+{txt}cruise1_tr~p {c |}{res}        156     3.66758    .2491774   3.287525   4.248228
+{txt}stay2_comA~t {c |}{res}        152    .0000259     .084198  -.1704376   .1587446
+{txt}stay2_irrC~p {c |}{res}        152   -1.42e-07    .0146392  -.0372139   .0325529
+{txt}stay2_seas~j {c |}{res}        152    4.330589    .1737901   3.962007   4.747471
+{txt}{hline 13}{c +}{hline 57}
+stay2_seas~p {c |}{res}        152    .0000548    .0810684   -.161198   .1413382
+{txt}stay2_tren~p {c |}{res}        152    4.330589    .1720432   3.992601   4.718516
+{txt}cruise2_co~t {c |}{res}        149    .0122954    .8210817   -1.71828   1.235921
+{txt}cruise2_ir~p {c |}{res}        149    -.005115    .0812389  -.7997678   .0962477
+{txt}cruise2_se~j {c |}{res}        149    3.649356    .2462365   2.650222   4.194542
+{txt}{hline 13}{c +}{hline 57}
+cruise2_se~p {c |}{res}        149    .0122138    .8202182   -1.71846   1.222639
+{txt}cruise2_tr~p {c |}{res}        149    3.654471    .2241043   3.300087   4.108085
+
+{com}. do "C:\Users\ASUS\AppData\Local\Temp\STD3478_000000.tmp"
+{txt}
+{com}. *The whole series
+. label var sa_ln_cruisevisitors "Cruise Camplet Adj"
+{txt}
+{com}. label var sa_ln_stayovervisitors "Stay-Over Camplet Adj"
+{txt}
+{com}. 
+. label var cruise1_seasAdj "Cruise X13-Seats Adj"
+{txt}
+{com}. label var stay1_seasAdj "Stay-Over X13-Seats Adj"
+{txt}
+{com}. 
+. *Without the last four months
+. label var sa2_ln_cruisevisitors "Cruise2 Camplet Adj"
+{txt}
+{com}. label var sa2_ln_stayovervisitors "Stay-Over2 Camplet Adj"
+{txt}
+{com}. 
+. label var cruise2_seasAdj "Cruise2 X13-Seats Adj"
+{txt}
+{com}. label var stay2_seasAdj "Stay-Over2 X13-Seats Adj"
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ASUS\AppData\Local\Temp\STD3478_000000.tmp"
+{txt}
+{com}. vecrank stay1_seasAdj cruise1_seasAdj
+{res}
+{txt}{center 79:Johansen tests for cointegration}
+Trend: constant{col 57}Number of obs = {res}{col 6}    154
+{txt}Sample:  {res}2005m12 - 2018m9{txt}{col 66}Lags = {res}      2
+{txt}{hline 79}
+{col 58}5%
+maximum{col 46}trace{col 55}critical
+  rank{col 11}parms{col 23}LL{col 32}eigenvalue{col 44}statistic{col 57}value
+{col 3}{res}  0{col 12}6   {col 19}  482.9493{col 33}       .{col 44}   4.8402{help vecrankstar##|_new:*}{col 55}  15.41
+{col 3}  1{col 12}9   {col 19}  485.2964{col 33} 0.03002{col 44}   0.1460{col 55}   3.76
+{col 3}  2{col 12}10  {col 19} 485.36942{col 33} 0.00095
+{txt}{hline 79}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ASUS\AppData\Local\Temp\STD3478_000000.tmp"
+{txt}
+{com}. vecrank sa_ln_cruisevisitors sa_ln_stayovervisitors
+{res}
+{txt}{center 79:Johansen tests for cointegration}
+Trend: constant{col 57}Number of obs = {res}{col 6}    151
+{txt}Sample:  {res}2006m3 - 2018m9{txt}{col 66}Lags = {res}      2
+{txt}{hline 79}
+{col 58}5%
+maximum{col 46}trace{col 55}critical
+  rank{col 11}parms{col 23}LL{col 32}eigenvalue{col 44}statistic{col 57}value
+{col 3}{res}  0{col 12}6   {col 19} 273.32924{col 33}       .{col 44}  18.9991{col 55}  15.41
+{col 3}  1{col 12}9   {col 19} 281.21838{col 33} 0.09922{col 44}   3.2208{help vecrankstar##|_new:*}{col 55}   3.76
+{col 3}  2{col 12}10  {col 19} 282.82879{col 33} 0.02110
+{txt}{hline 79}
+
+{com}. 
+{txt}end of do-file
+
+{com}. help arima
+
+. celar
+{err}command {bf}celar{sf} is unrecognized
+{txt}{search r(199), local:r(199);}
+
+{com}. clear
+
+. exit

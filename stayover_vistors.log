@@ -1,0 +1,48 @@
+1
+    Log for X-13ARIMA-SEATS program (Version 1.1 Build 39)  Mar  9, 2021  17.31.35 
+    *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+
+
+ Type of  Series      Additional                   Series title
+ Adjust.  Ident.      Identifiers
+
+
+  NOTE: The X-13ARIMA-SEATS diagnostic file (.udg) has been stored
+        in the directory specified by the graphics (-g) option.
+
+  M-NONE   stayov -------- -------- X-13ARIMA-SEATS run of stayover_vistors           
+ Average Absolute Percentage Error : within-sample forecasts
+    AAPE(Last year)   :             6.58
+    AAPE(Last-1 year) :             6.81
+    AAPE(Last-2 year) :            18.56
+    AAPE(Last 3 years):            10.65
+   AIC  :     793.6145
+   AICC :     794.9679
+   BIC  :     820.2801
+   Hannan-Quinn  :     804.4501
+     Summary of Significant Ljung-Box Q:
+     Lag        Q         DF       P
+     ---     -------     ---     -----
+      19      36.184      18      0.007
+      20      36.188      19      0.010
+      21      36.189      20      0.015
+      22      38.761      21      0.010
+      23      38.938      22      0.014
+      24      40.234      23      0.014
+
+    Skewness coefficient:   -0.3898  
+    Geary's a statistic:    0.8031  
+    Kurtosis:    2.7771  
+
+ Percentage of months flagged as unstable.
+  Seasonal Factors :                               1 out of 117 (  0.9 %)
+  Month-to-Month Changes in SA Series :            1 out of 116 (  0.9 %)
+  Year-to-Year Changes in SA Series :              0 out of 105 (  0.0 %)
+ AveAbsRev of Seasonal Adj. :               1.781
+ AveAbsRev of Changes in Adj. :             1.112
+ AveAbsRev of Trend :                       1.999
+ AveAbsRev of Changes in Trend :            1.018
+
+  NOTE: The diagnostic files produced by the -s option are stored in the
+        directory specified by the graphics (-g) option.

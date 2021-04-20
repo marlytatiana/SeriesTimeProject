@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+	<title>X-13-Data Version 2.0 Documentation</title>
+<link rel="sun icon" href="images/sun.ico">	
+ <style type="text/css">
+ h1,h2{color:rgb(79, 129, 189)}
+ ol li {list-style-type:decimal}
+ ol ol li {list-style-type:lower-alpha}
+ ol ol ol li{list-style-type:lower-roman}
+ 
+ p{margin-left:20px;}
+.ind1{margin-left:40px;}
+.ind2{margin-left:60px;}
+.graph{margin-left:40px;}
+.defn{margin-left:60px;text-indent:-20px}
+ </style>
+</head>
+
+<body>
+
+<h1>X-13-Data Version 2.0</h1>
+	<p> Nikki Czaplicki<br>	
+		U.S. Census Bureau<br>
+		August 26, 2014
+	</p>
+<a name = "contents"></a>	
+<h2>Table of Contents</h2>
+ 
+	<ol>
+	<li> <a href="#Introduction" >Introduction</a></li>
+	<li> <a href="#Requirements"> Requirements</a></li>
+	<li> <a href="#GettingStarted">Getting Started </a></li>
+	<li> <a href="#ExcelToX13"> Convert from Excel to X-13</a> </li>
+	<li> <a href="#X13ToExcel"> Convert X-13 Output to an Excel file</a></li>
+	<li> <a href="#DataFormats">Data Formats </a></li>
+	<li> <a href="#Contact"> Contact Information</a> </li>
+	<li> <a href="#References"> References </a> </li>
+	</ol>
+
+	<h2><a name="Introduction">1. Introduction</a></h2>
+	
+   <p> Input and output files from X-13ARIMA-SEATS(X-13A-S) (U.S. Census Bureau, 2015) must be text files; however,
+   	many users store their data in Microsoft Excel files and would like their output in Microsoft Excel format. 
+  </p>
+  <p> X-13-Data is a tool that can: </p>
+  	<ul>
+		<li> Convert data from Microsoft Excel to a text file in <code>datevalue</code> format.</li>
+		<li> Convert X-13ARIMA-SEATS output files in <code>x13save</code> format to a Microsoft Excel file.</li>
+		
+	</ul>
+	   <br><p>Return to <a href="#contents">contents</a>.</p><br>
+	<h2><a name="Requirements">2. Requirements</a></h2>
+		<p> X-13-Data has been tested on Windows XP, Windows 7, and Windows 8.
+			To run the program, Microsoft.NET Framework 3.5 must be installed
+			on your computer. It can be downloaded <a href="http://www.microsoft.com/en-us/download/details.aspx?id=21">here.</a></p>
+			
+		<p>X-13-Data also requires Microsoft Excel installed on your computer and has been tested with
+			Microsoft Excel 2007 and Microsoft Excel 2010. </p>
+		<br><p>Return to <a href="#contents">contents</a>.</p><br>
+
+	<h2><a name="GettingStarted">3. Getting Started</a> </h2>
+		<ol>
+		  <li> Download <code>X13Data.zip</code>.</li>
+		  <li> Unzip <code>X13Data.zip</code>.</li>
+		  <li> Double click on <code>X13Data.exe</code> to launch. The X-13-Data main screen will display.
+		
+		<p><img src='images/image001.png' alt="X-13-Data Main Screen" ></p>  
+	
+		<p><strong>Keyboard Shortcuts:</strong>
+		<br/>Go=Alt+g
+		<br/>Cancel=Alt+c</p></li>
+		<li> From here, you can choose to convert your Excel data into a file that can be read by X-13ARIMA-SEATS
+		(see <a href="ExcelToX13">Section 4</a>), or convert your X-13 output files to Excel files
+		(see <a href="X13ToExcel">Section 5</a>).
+			 </li>
+		</ol>
+		<br><p>Return to <a href="#contents">contents</a>.</p><br>
+	<h2><a name="ExcelToX13">4. Convert from Excel to X-13.</a></h2>
+		<p> <a>X-13-Data will read data in a Microsoft Excel file in a variety of formats (all described in Section 6)
+				and convert them to an X-13 data file in <code>datevalue</code> format. (See the X-13ARIMA-SEATS Reference Manual (2015) for
+				more information about <code>datevalue</code> and other accepted formats.)</a>
+		</p>		
+			<ol>
+				<li>Select <em>Excel to X-13 file</em> from the X-13-Data main page and press <em>Go.</em> The X-13-Data Excel
+					Reader window will appear.</li>
+				<li>Select a Microsoft Excel file by either typing the complete file name in the <em>Excel File </em>
+					text box or navigating to the file using the <em>Browse</em> button. Once an existing Excel file has been
+					selected, the other controls will become available; use them to select the output file, define the data
+					format, and locate the data within the spreadsheet, as described below.
+
+				<p><img src='images/image003.png' alt="X-13-Data: Excel Reader" ></p>
+				<p><strong>Keyboard Shortcuts:</strong>
+				<br/>Browse=Alt+b
+				<br/>Go=Alt+g
+				<br/>Cancel=Alt+c</p>
+				</li>
+				<li>Select the Excel worksheet that contains the data using the <em>Worksheet Number</em> box.</li>
+				<li>Select the format that your data are in using the <em>Data Format</em> box.
+					See <a href="#DataFormats">Data Formats </a>below for more information on supported formats.</li>
+				<li>If you are reading a single series with Vertical or Horizontal format, use the <em>Save File</em>
+					box to select a name for the data file that will be created.
+					<ol>
+						<li>The file must have a .dat extension. X-13-Data will change or add the .dat extension, if necessary.</li>
+						<li>If a file with the selected name already exists, a box will display asking if you would like to 
+							overwrite or rename the file.</li>
+					</ol>
+				</li>
+				<li>If you are reading a file containing multiple series in Vertical-Multiple, Horizontal-Multiple or MRTS
+					format, each series will be saved to its own data file. These data files will be saved in the same directory
+					as the input Excel file.
+					<ol>
+						<li>For Vertical-Multiple and Horizontal-Multiple formats, the data file names will be the series
+							names whose locations are specified using the <em>Series Names Row/Column</em> box.</li>
+						<li>For MRTS format, the location of the series names does not need to be specified.</li>
+						<li>For all of these formats, if a file with the same name already exists, the new file name will have
+							a numeric suffix. For example, if books.dat already exists in the same directory as the input
+							file, the new data file will be named books(2).dat.</li>
+					</ol>
+				</li>
+				<li>Check the <em>Date in more than one column</em> box if the dates are organized such that the year is in
+					the first date column and the period (months or quarters) is in the next column.</li>
+				<li>Use the following controls to describe the location of the data within Excel file:
+					<ol>
+						<li><em>Date Column:</em> The column in which the dates begin.</li>
+						<li><em>Data Start Column:</em> The column in which the numeric data begin.</li>
+						<li><em>Data Start Row:</em> The row in which the numeric data begin.</li>
+						<li><em>Series Names Row:</em> The row containing the series names.
+							Only available for Vertical-Multiple format.</li>
+						<li><em>Series Names Column:</em> The column containing the series names. Only available for
+							Horizontal-Multiple format.</li>
+						<li><em>Data End Column:</em> The column where the user would like the data to end. Only available
+						 for Regression Matrix format.</li>
+						<li><em>Data End Row:</em> The row where the user would like the data to end. Only available for
+						Regression Matrix format.</li>
+					</ol>
+				</li>
+				<li>Alternatively, you can specify the starting date manually by checking the <em>Manually Enter Dates</em>
+					box and then selecting the starting year using the <em>Start Year</em> box and the starting period using
+					the <em>Start Period</em> box. NOTE: <em>Manually Enter Dates</em> is not available for MRTS format. </li>
+				<li>Use the <em>Period</em> box to select the frequency of the data: 12 for monthly data, 6 for bimonthly data,
+				4 for quarterly data, 2 for biannual data or 1 for annual data.</li>
+				<li>X-13-Data will stop reading an Excel file when:
+					<ol>
+						<li>Two consecutive non-numeric values in a series, e.g. two consecutive missing values. (Note
+							that in X-13ARIMA-SEATS, by default the value -99999 in a series is considered a missing
+							value; if your data has missing values, it is best to change them to this value before
+							attempting to convert the file.)</li>
+						<li>An empty row or column is encountered</li>
+					</ol>
+				</li>					
+		</ol>
+		<br><p>Return to <a href="#contents">contents</a>.</p><br>
+	 <h2><a name="X13ToExcel">5. Convert X-13 Output to an Excel file.</a></h2>
+	 	<p> The exact format of the Excel file varies depending on the type of file being converted and how many series are being converted at a time. 
+	 			But the general format will include:  </p>
+			<ul>
+				<li>the series name </li>
+				<li>the file type</li>
+				<li>labels for the date and data columns</li>
+				<li>converted data</li>	
+			</ul>
+			<p> To convert X-13 output files to Excel files. </p>
+		<ol>
+			<li>Select <em>X-13 Output to Excel file</em> from the X-13-Data main page and press <em>Go</em>. The X-13-Data
+				Excel Writer window will appear.
+				<p><img src='images/Excel_writer2.png' alt="X-13-Data: Excel Writer" ></p>
+				<p><strong>Keyboard Shortcuts:</strong>
+				<br/>Browse=Alt+b
+				<br/>Go=Alt+g
+				<br/>Cancel=Alt+c</p>
+				</li>
+			<li>Navigate to your directory using the file explorer tree on the left. This will populate the list of series in the 
+				first list box. By default, series names will be displayed here. You can populate this list with
+				metafiles <a href="images/Retail.mta">(text files containing lists of series)</a> by selecting "Metafile"
+				from the drop-down box above the list.</li> 
+			<li>Select at least one item from the list. The second list will be populated with possible file types. If you select by series,
+			X-13-Data will display the file types that actually exist in the directory for the selected series. If you select by metafile,
+			X-13-Data will display all file types.</li>
+			<li>Select one or more file types from the list on the right. You can select file types by file description or by file extension. Use the drop down menu
+				above the list on the right to switch between these two options. You can customize the order of the file types by clicking on the 
+			<em>Customize File Type List</em> button. Click <a href="images/ChangeOrder.png">here</a> to see an example of the Change File Type Order box. </li>
+			<li>Select how the data wil be grouped in the Excel file. You can group data by series or by file type.</li>
+			<li>Enter the name for the Microsoft Excel file in the save file box. If you would like to save the file to the currently selected directory, just
+				enter the file name. Otherwise, include the complete path and filename. This file must have a .xls or .xlsx extension. You can also navigate to the 
+				location where you would like to save the file using the <em>Browse</em> button. </li>
+					<li>Press the <em>Go</em> button to convert the files. See below for an example of a converted file. </li>
+		</ol>
+		<p><img src='images/ToExcel.png' alt="X-13 Output Converted to Excel" ></p>
+		
+		<h3>A note about grouping.</h3>
+		<p>Series can be grouped by series or file type. Each grouping will be on its own worksheet in the Excel file. 
+			X-13ARIMA-SEATS can accommodate series with one of five periods: annual, biannual, quarterly, bimonthly, and monthly. X-13-Data can convert files 
+			of all four periods at once if requested by the user. When organizing the output by series, this doesn't present a problem since all 
+			file types for a single series will have the same period. However, when organizing the output by file types; there is the potential for different 
+			periods for the same file type. In this case, X-13-Data creates a separate worksheet for each combination of file type and period. 
+			In this case, the worksheet name will be the file type followed by the period. </p>
+	
+			
+			<br><p>Return to <a href="#contents">contents</a>.</p><br>
+	  <h2><a name="DataFormats">6. Data Formats</a></h2>
+	  	  <h4>Vertical	</h4>
+		  	<img src='images/image007.png'  alt="Vertical Format Example" >
+			<p>	The dates are in one or two columns and the data is in another column
+		</p>
+		  
+		<h4>Horizontal</h4>
+		    <img src='images/image009.png' alt="Horizontal Format Example" >
+			<p>Data is in a table, with each row containing one year of data. Each column contains data for one period.
+		</p>
+		<h4>Vertical-Multiple</h4>
+			<img src='images/image011.png' alt="Vertical-Multiple Format Example" >
+			<p>Similar to Vertical for single series, each series is in its own column. There is a row containing the
+				names of each series. These are used to name the data files created by X-13-Data.</p>
+		<h4>Horizontal-Multiple</h4>
+			<img src='images/image013.png' alt="Horizontal-Multiple Format Example" >
+			<p>One column contains the series names. (Here it is column A.) Each series is presented in its entirety before the
+				next series begins. Each row contains one year of data. Each month (quarter) is in its own column.
+		<h4>MRTS</h4>
+			<p>MRTS refers to the U.S. Census Bureau's Monthly Retail Trade and Food Services report. It is available
+				at 	<a href="http://www.census.gov/retail/">
+			http://www.census.gov/retail/</a> </p>
+			<img src='images/image015.png' alt="MRTS Format Example">
+			<p>X-13-Data will create a data file for each unadjusted series from the MRTS report. You do not need to
+			   specify any parameters when the MRTS format has been selected.
+		<h4>Regression Matrix</h4>	
+			<img src='images/RegressionMatrix.png' alt="Regression Matrix Format Example" >
+			<p> This is similar to Vertical Multiple format except that entire matrix will be saved into one data file. This type of file can be read 
+			into X-13ARIMA-SEATS as a user-defined regressor. </p>
+			<p>
+			Use the controls to specify the start and end rows and columns of the regression matrix. <em>Data Start Column</em>
+			and <em>Data Start Row</em> are required. Leave <em>Data End Column</em> and <em>Data End Row</em> at their default values to read 
+			the entire matrix. Otherwise, use <em>Data End Column</em> and <em>Data End Row</em> to read a subset of the data in the Excel file.
+		</p>
+			<br><p>Return to <a href="#contents">contents</a>.</p><br>
+		<h2><a name="Contact">7. Contact Information</a></h2>
+			<p>For more information or to report bugs, please contact Nikki Czaplicki.
+			<br>Email: nicole.czaplicki@census.gov
+			<br>Phone: 301-763-6206
+			</p>
+			<br><p>Return to <a href="#contents">contents</a>.</p><br>
+		<h2><a name="References">8. References</a></h2>
+			<p>U.S. Census Bureau (2015).<a href= "https://www.census.gov/srd/www/x13as/">X-13ARIMA-SEATS,Version 1.1 </a></p>
+			<p>U.S. Census Bureau (2015). <a href="http://www.census.gov/ts/x13as/docX13AS.pdf">
+			X-13ARIMA-SEATS Reference Manual,Version 1.1</a></p>
+			<br><p>Return to <a href="#contents">contents</a>.</p><br>
+				
+	 	
+</body>
+
+
+</html>
